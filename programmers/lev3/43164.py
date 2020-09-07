@@ -1,27 +1,27 @@
-from collections import deque
-
 def solution(tickets):
+    routes = dict()
+    st = ["ICN"]
     answer = []
 
-    bean=[[]]
+    for (start, end) in tickets:
+        print(start, end)
+        routes[start] = routes.get(start, []) + [end]
+        print(routes[start])
 
-    visited=[False]*len(tickets)
+    for r in routes.keys():
+        routes[r].sort(reverse=True)
 
-    sort=sorted(tickets)
-    temp=[]
-    for i in range(len(sort)):
-        if sort[i][0]=="ICN":
-            dfs(sort,i,temp,visited,sort[i][1],1)
-    
-    return answer
+    while st:
+        top = st[-1]
 
-def dfs(sort,i,test,visited,loc,depth):
-    
+        if top not in routes or len(routes[top])==0:
+            answer.append(st.pop())
+        else:
+            st.append(routes[top][-1])
+            routes[top] = routes[top][:-1]
 
-    
+    return answer[::-1]
 
-tickets=[["ICN", "SFO"], ["ICN", "ATL"], ["SFO", "ATL"], ["ATL","ICN"],["ATL","SFO"]]
-#tickets=[['ICN','BOO' ], [ 'ICN', 'COO' ], [ 'COO', 'DOO' ], ['DOO', 'COO'], [ 'BOO', 'DOO'] ,['DOO', 'BOO'], ['BOO', 'ICN' ], ['COO', 'BOO']]
-#print(sorted(tickets))
-# [ICN, ATL, ICN, SFO, ATL, SFO]
+tickets=[["ICN", "SFO"], ["ICN", "ATL"], ["SFO", "ATL"], ["ATL", "ICN"], ["ATL","SFO"]]
+
 solution(tickets)
