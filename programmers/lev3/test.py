@@ -1,28 +1,31 @@
-def solution(tickets):
-    routes = dict()
-    st = ["ICN"]
-    answer = []
+import heapq
 
-    for (start, end) in tickets:
-        #print(start, end)
-        routes[start] = routes.get(start, []) + [end]
-        #print(routes[start])
-
-    print(routes)
-    for r in routes.keys():
-        routes[r].sort(reverse=True)
-
-    while st:
-        top = st[-1]
-
-        if top not in routes or len(routes[top])==0:
-            answer.append(st.pop())
+# 대기 중인 것들 중에 처리되는 속도가 가장 작은걸 우선으로 
+def solution(jobs):
+    count, last, answer = 0, -1, 0
+    heap = []
+    jobs.sort()
+    # 시작시간 초기화
+    time = jobs[0][0]
+    while count < len(jobs):
+        for s, t in jobs:
+            if last < s <= time:    0 10
+                # 작업 소요시간으로 min heap을 만들기 위해 (t, s) 푸시
+                heapq.heappush(heap, (t, s))
+        # 바로 수행할 수 있는 작업이 있는 경우
+        
+        if len(heap) > 0:
+            count += 1 # 1
+            last = time # 0
+            term, start = heapq.heappop(heap) # 10,0
+            time += term # time 10 = 0  + term 10
+            answer += (time - start) # 10-0
+        # 바로 수행할 수 있는 작업이 없는 경우
         else:
-            st.append(routes[top][-1])
-            routes[top] = routes[top][:-1]
+            time += 1
+    return answer//len(jobs)
 
-    return answer[::-1]
-
-tickets=[["ICN", "SFO"], ["ICN", "ATL"], ["SFO", "ATL"], ["ATL", "ICN"], ["ATL","SFO"]]
-
-solution(tickets)
+#jobs=[[0, 3], [1, 9], [2, 6]]
+#jobs=[[0, 3], [4, 3], [10, 3]]              # 3
+jobs=[[0, 10], [4, 10], [5, 11], [15, 2]]
+print(solution(jobs))
