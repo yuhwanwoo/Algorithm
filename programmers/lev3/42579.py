@@ -1,3 +1,4 @@
+# 베스트앨범
 def solution(genres, plays):
     answer = []
 

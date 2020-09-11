@@ -1,4 +1,5 @@
 
+# 네트워크
 def dfs(visited,computers,i,n):
     visited[i]=True
     for v in range(len(computers)):

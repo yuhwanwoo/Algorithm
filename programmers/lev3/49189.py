@@ -1,3 +1,4 @@
+# 가장 먼 노드
 from collections import deque
 
 def solution(n, edge):

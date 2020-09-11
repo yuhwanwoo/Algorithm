@@ -1,3 +1,4 @@
+# 조이스틱
 # ABBBBBBBBBBAAAABB 이 경우 확인해야해
 def solution(name):
     answer = 0

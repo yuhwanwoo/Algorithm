@@ -1,3 +1,4 @@
+# 여행경로
 def solution(tickets):
     routes = dict()
     st = ["ICN"]
