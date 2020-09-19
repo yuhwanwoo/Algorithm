@@ -1,18 +1,16 @@
-import sys
-input=sys.stdin.readline
 m,n=map(int,input().split())
 
 graph=[]
 temp=[[0]* n for _ in range(m)]
+cnt=0
+
+for i in range(m):
+    graph.append(list(map(int,input().split())))
 
 dx=[-1,1,0,0]
 dy=[0,0,-1,1]
 
 result=0
-
-for i in range(m):
-    graph.append(list(map(int,input().split())))
-
 
 
 def virus(x,y):
@@ -24,20 +22,10 @@ def virus(x,y):
                 temp[nx][ny]=2
                 virus(nx,ny)
 
-
-def get_score():
-    count=0
-    for i in range(m):
-        for j in range(n):
-            if temp[i][j]==0:
-                count+=1
-    return count
-
-
-
 def dfs(cnt):
     global result
     if cnt==3:
+        count=0
         for i in range(m):
             for j in range(n):
                 temp[i][j]=graph[i][j]
@@ -45,7 +33,11 @@ def dfs(cnt):
             for j in range(n):
                 if temp[i][j]==2:
                     virus(i,j)
-        result=max(result,get_score())
+        for i in range(m):
+            for j in range(n):
+                if temp[i][j]==0:
+                    count+=1
+        result=max(result,count)
         return
     for i in range(m):
         for j in range(n):
@@ -55,7 +47,5 @@ def dfs(cnt):
                 dfs(cnt)
                 graph[i][j]=0
                 cnt-=1
-
-
 dfs(0)
 print(result)
