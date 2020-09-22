@@ -12,7 +12,7 @@ graph=[[] for _ in range(n+1)]
 # 방문한 적이 있는지 체크하는 목적의 리스트 만들기
 visited=[False]*(n+1)
 
-distance=[INF]*len(n+1)
+distance=[INF]*(n+1)
 
 for _ in range(m):
     a,b,c=map(int,input().split())
