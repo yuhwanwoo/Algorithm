@@ -1,28 +1,46 @@
 # 가장 먼 노드
-from collections import deque
+import heapq
+import sys
+input=sys.stdin.readline
 
-def solution(n, edge):
-    answer = 0
-
-    node=dict()
+def dijkstra(start,edge):
+    INF=int(1e9)
+    distance=[INF]*(len(edge)+1)
+    graph=[[] for _ in range(len(edge)+1)]
 
     for i in range(len(edge)):
-        node[edge[i][0]]=node.get(edge[i][0],[])+[edge[i][1]]
+        a,b=edge[i]
+        graph[a].append((b,1))
+        graph[b].append((a,1))
 
-    for i in node.keys():
-        node[i].sort()
-    q=deque()
-    visited=[False]*n
+    q=[]
+    heapq.heappush(q,(0,start))
+    distance[start]=0
+    while q:
+        dist,now=heapq.heappop(q)
+        if distance[now]<dist:
+            continue
+        for i in graph[now]:
+            cost=dist+i[1]
+            if cost<distance[i[0]]:
+                distance[i[0]]=cost
+                heapq.heappush(q,(cost,i[0]))
+    remove_set={INF}
+
+    distance=[i for i in distance if i not in remove_set]
+    maxi=max(distance)
     cnt=0
-    for i in node[1]:
-        q.append(i)
-        cnt+=1
-        visited[i]=True
+    for i in distance:
+        if maxi==i:
+            cnt+=1
+    return cnt
+
         
-        while q:
-            top=q.popleft()
-
-
+def solution(n, edge):
+    answer=0
+    
+    
+    answer=dijkstra(1,edge)
     return answer
 
 n=6
