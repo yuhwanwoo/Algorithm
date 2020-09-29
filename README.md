@@ -10,7 +10,7 @@ for i in range(len(tickets)):
 for ticket in tickets:
     print(ticket)
     print(ticket[1])
-for idx, ticket in enumerate(tickets):
+for idx, ticket in enumerate(tickets): # 인덱스랑 같이 뽑을때
     print(idx, ticket, ticket[1])
 ```
 

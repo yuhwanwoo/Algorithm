@@ -1,31 +1,23 @@
-import heapq
+tickets=[["ICN", "SFO"], ["ICN", "ATL"], ["SFO", "ATL"], ["ATL", "ICN"], ["ATL","SFO"]]
+routes=dict()
+for (start, end) in tickets:
+    #routes라는 dict에 출발지 key
+    # 이렇게 하면
+    # routes["ICN"]=["SFO","ATL"]
+    # routes["SFO"]=["ATL"] 이런식으로 리스트가 만들어짐 
+    print(start, end) # tickets[0]=["ICN", "SFO"] => start="ICN", end="SFO"
+    routes[start] = routes.get(start, []) + [end] #리스트+리스트는 합쳐진 리스트기때문에 [end] []를씌워야함 아니면 그냥 원소값으로 들어감
+    print(routes[start])
 
-# 대기 중인 것들 중에 처리되는 속도가 가장 작은걸 우선으로 
-def solution(jobs):
-    count, last, answer = 0, -1, 0
-    heap = []
-    jobs.sort()
-    # 시작시간 초기화
-    time = jobs[0][0]
-    while count < len(jobs):
-        for s, t in jobs:
-            if last < s <= time:    0 10
-                # 작업 소요시간으로 min heap을 만들기 위해 (t, s) 푸시
-                heapq.heappush(heap, (t, s))
-        # 바로 수행할 수 있는 작업이 있는 경우
-        
-        if len(heap) > 0:
-            count += 1 # 1
-            last = time # 0
-            term, start = heapq.heappop(heap) # 10,0
-            time += term # time 10 = 0  + term 10
-            answer += (time - start) # 10-0
-        # 바로 수행할 수 있는 작업이 없는 경우
-        else:
-            time += 1
-    return answer//len(jobs)
+example=dict()
+exam=[1,2,3,4,1]
+for i in exam:
+    example[i]=example.get(i,"")+"가" # key가 i 즉,1,2,3,4 || example[1]에 값이 없으면 "" 만약 있으면 기존에 value값에 +"가"를 해준다
 
-#jobs=[[0, 3], [1, 9], [2, 6]]
-#jobs=[[0, 3], [4, 3], [10, 3]]              # 3
-jobs=[[0, 10], [4, 10], [5, 11], [15, 2]]
-print(solution(jobs))
+print(example) # {1: '가가', 2: '가', 3: '가', 4: '가'}
+
+a=[1,2,3]
+b=[3,4,5]
+
+print(a+b)
+
