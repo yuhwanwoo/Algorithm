@@ -40,3 +40,18 @@ print(example) # {1: '가가', 2: '가', 3: '가', 4: '가'}
 
 
 
+### 리스트를 문자열로 변환
+
+```python
+list=['H','E','L','L','O']
+
+print(''.join(list)) # HELLO
+print('-'.join(list)) # H-E-L-L-O
+print('\n'.join(list))
+# H
+# E
+# L
+# L
+# O
+```
+
