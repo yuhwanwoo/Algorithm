@@ -9,4 +9,3 @@ for i in data:
     symbols.append(i["symbol"])
 
 print(symbols)
-print(len(symbols))
