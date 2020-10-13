@@ -55,3 +55,36 @@ print('\n'.join(list))
 # O
 ```
 
+
+
+### 알파벳인지 숫자인지 확인하는 법
+
+```python
+data=[a,1,2,3]
+
+print(data[0].isalpha())
+//True
+print(data[0].isdigit())
+//False
+
+print(data[1].isalpha())
+//False
+print(data[1].isdigit())
+//True
+
+```
+
+
+
+### 날짜 파이썬으로 계산하기
+
+```python
+import datetime
+from datetime import timedelta # 시간 연산할 때
+
+d=datetime.datetime(2020,1,1,10,24,10)
+d=d+timedelta(seconds=20)
+
+d=d.strftime('%H:%M:%S') # %H는 24시간 기준 %I는 12시간 기준
+```
+
