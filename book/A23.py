@@ -1,3 +1,10 @@
+# 백준 국영수
+# 입력 예 
+# 3
+# Junkyu 50 60 100
+# Sangkeun 80 60 50
+# Sunyoung 80 70 100
+
 n=int(input())
 students=[] # 학생 정보를 담을 리스트
 

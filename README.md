@@ -38,6 +38,27 @@ for i in exam:
 print(example) # {1: '가가', 2: '가', 3: '가', 4: '가'}
 ```
 
+##### - dic set() 초기화 하여 사용
+
+```python
+win = {x:set() for x in range(1, n+1)}
+## print(win)  >>  {1: set(), 2: set(), 3: set(), 4: set(), 5: set()}
+
+for winner, loser in results:
+    win[winner].add(loser)
+for winner in lose[i]:
+	win[winner].update(win[i])
+
+# 다른 방법
+# 이런 것도 있더라 - dict에서 자동으로 set만드는 거
+from collections import defaultdict
+wins = defaultdict(set)
+loses = defaultdict(set)
+
+win[winner].add(loser)
+win[winner].update(win[i])
+```
+
 
 
 ### 리스트를 문자열로 변환
@@ -99,5 +120,19 @@ def strange_sort(strings, n):
 
 strings = ["sun", "bed", "car"] 
 print(strange_sort(strings, 1))
+```
+
+### lambda 정렬
+
+```python
+# 문제 참고 백준:국영수 책:A23
+
+# [정렬 기준]
+# 1) 두 번째 원소를 기준으로 내림차순 정렬
+# 2) 두 번째 원소가 같은 경우, 세 번째 원소를 기준으로 오름차순 정렬
+# 3) 세 번째 원소가 같은 경우, 네 번째 원소를 기준으로 내림차순 정렬
+# 4) 네 번째 원소가 같은 경우, 첫 번째 원소를 기준으로 오름차순 정렬
+
+students.sort(key=lambda x:(-int(x[1]),int(x[2]),-int(x[3]),x[0]))
 ```
 
