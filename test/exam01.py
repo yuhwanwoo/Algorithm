@@ -25,7 +25,7 @@ def sol(n,customers):
         if d.month<10:
             if d.day<10:
                 for i in date["0"+str(d.month)+"/"+"0"+str(d.day)]:
-                    for j in range(len(i))
+                    for j in range()
                     
         else :
         d=d+timedelta(minutes=int(c))
