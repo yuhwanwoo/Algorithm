@@ -136,3 +136,49 @@ print(strange_sort(strings, 1))
 students.sort(key=lambda x:(-int(x[1]),int(x[2]),-int(x[3]),x[0]))
 ```
 
+### zip 함수
+
+```python
+x='python'
+y='123456'
+zip_x_y=zip(x,y)
+print(list(zip_x_y))
+// [('p', '1'), ('y', '2'), ('t', '3'), ('h', '4'), ('o', '5'), ('n', '6')]
+
+x=[1,2,3,4]
+y=['a','b','c','d']
+z='ABCD'
+zip_x_y_z=zip(x,y,z)
+print(list(zip_x_y_z))
+// [(1, 'a', 'A'), (2, 'b', 'B'), (3, 'c', 'C'), (4, 'd', 'D')]
+
+x=('a','b','c')
+y=[1,2,3,4,5,6,7]
+zip_x_y=zip(x,y)
+print(list(zip_x_y))
+// [('a', 1), ('b', 2), ('c', 3)]
+```
+
+### startswith()와 endswith()
+
+```python
+#startswith()
+>>> new_str = "Hello"
+>>> new_str.startswith("H")
+True
+>>> new_str.startswith("h")
+False
+>>> new_str.startswith("He")
+True
+
+
+#endswith()
+>>> new_str = "World"
+>>> new_str.endswith("d")
+True
+>>> new_str.endswith("D")
+False
+>>> new_str.endswith("ld")
+True
+```
+

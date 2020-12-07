@@ -1,14 +1,8 @@
-s = "abcabcabcabcdededededede"
+phoneBook=["119","345","1192314","3456"]
 
-result = s[0]  # 첫번째 값을 결과에 넣는다
-count  = 0
-
-for st in s:
-    if st == result[-1]:
-        count += 1
-    else:
-        result += str(count) + st
-        count = 1
-result += str(count)
-
-print(result)
+phoneBook=sorted(phoneBook)
+print(phoneBook)
+print(phoneBook[1:])
+print(list(zip(phoneBook,phoneBook[1:])))
+for p1, p2 in zip(phoneBook,phoneBook[1:]):
+    print(p1,p2)
