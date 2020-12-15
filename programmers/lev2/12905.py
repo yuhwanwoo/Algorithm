@@ -1,3 +1,4 @@
+# dp 네.....
 def solution(board):
     answer = 0
     max_leng=max(len(board),len(board[0]))
