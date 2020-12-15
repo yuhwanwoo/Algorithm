@@ -1,5 +1,5 @@
 # 다른사람 풀이
-def solution(arr):
+def solution1(arr):
     def check(y, x, n):
         # 타일 1개에 도달한 경우
         # 타일 값이 0이면 [1,0], 값이 1이면 [0,1]을 리턴한다.
@@ -22,6 +22,26 @@ def solution(arr):
 
     result = check(0,0,len(arr))
     return result
+
+
+def solution(arr):
+    def quard(x,y,n):
+        if n==1:
+            return [0,1] if arr[x][y]==1 else [1,0]
+        
+        up_left=quard(x,y,n//2)
+        up_right=quard(x,y+n//2,n//2)
+        down_left=quard(x+n//2,y,n//2)
+        down_right=quard(x+n//2,y+n//2,n//2)
+
+        if up_left==up_right==down_left==down_right==[0,1] or up_left==up_right==down_left==down_right==[1,0]:
+            return up_left
+        else:
+            return list(map(sum,zip(up_left,up_right,down_left,down_right)))
+    
+    result=quard(0,0,len(arr))
+    return result
+
 
 arr=[[1,1,0,0],[1,0,0,0],[1,0,0,1],[1,1,1,1]]
 solution(arr)
