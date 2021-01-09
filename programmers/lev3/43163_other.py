@@ -1,3 +1,9 @@
+# 다른 사람 풀이인데 이 경우가 돼서 5가 나와서 오답같다.
+# 내 생각엔 4가 나와야함
+# begin="hit"
+# target="cog"
+# words=["hot", "dog", "dot", "lot", "log", "cog","loj"]
+
 answer = 0
 def dfs(begin,target,words,visited):
     global answer
