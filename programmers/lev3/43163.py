@@ -4,9 +4,8 @@ def dfs(begin,target,words,visited,answer):
     
     if begin==target:
         global ans
-        answer-=1
         ans=min(ans,answer)
-        print("이건",answer)
+        print("이건",answer,ans)
         return answer
 
     for i in range(len(words)):
@@ -22,6 +21,7 @@ def dfs(begin,target,words,visited,answer):
             print("출",words[i],answer)
             visited[i]=1
             dfs(words[i],target,words,visited,answer+1)
+            visited[i]=0
 
     return INF
     
@@ -37,7 +37,7 @@ def solution(begin, target, words):
     dfs(begin,target,words,visited,0)
     if ans==INF:
         return 0
-    return answer
+    return ans
 
 begin="hit"
 target="cog"
