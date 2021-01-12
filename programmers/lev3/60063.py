@@ -1,38 +1,53 @@
 from collections import deque
 
+dx=[-1,1,0,0]
+dy=[0,0,-1,1]
+
+def bfs(pos,new_board):
+    new_pos=[]
+    pos=list(pos)
+    pos1_x, pos1_y, pos2_x, pos2_y=pos[0][0], pos[0][1], pos[1][0], pos[1][1]
+    for i in range(4):
+        pos1_next_x, pos1_next_y, pos2_next_x, pos2_next_y=pos1_x+dx[i],pos1_y+dy[i],pos2_x+dx[i],pos2_y+dy[i]
+        if new_board[pos1_next_x][pos1_next_y]==0 and new_board[pos2_next_x][pos2_next_y]==0:
+            new_pos.append({(pos1_next_x,pos1_next_y),(pos2_next_x,pos2_next_y)})
+    if pos1_x==pos2_x:
+        for i in [-1,1]:
+            if new_board[pos1_x+i][pos1_y]==0 and new_board[pos2_x+i][pos2_y]==0:
+                new_pos.append({(pos1_x,pos1_y),(pos1_x+i,pos1_y)})
+                new_pos.append({(pos2_x,pos2_y),(pos2_x+i,pos2_y)})
+    elif pos1_y==pos2_y:
+        for i in [-1,1]:
+            if new_board[pos1_x][pos1_y+i]==0 and new_board[pos2_x][pos2_y+i]==0:
+                new_pos.append({(pos1_x,pos1_y),(pos1_x,pos1_y+i)})
+                new_pos.append({(pos2_x,pos2_y),(pos2_x,pos2_y+i)})
+
+    return new_pos
+
+
 def solution(board):
-    answer = 0
-
+    n=len(board)
+    new_board=[[1]*(n+2) for _ in range(n+2)]
     
-    # 가로일때 1
-    # 세로일떄 0
-
-    bfs(board,0,0,0,1,0)
-
-
-    return answer
-
-def bfs(board,x,y,a,b,dic):
-
+    for i in range(n):
+        for j in range(n):
+            new_board[i+1][j+1]=board[i][j]
+    
     q=deque()
-    q.append((x,y))
-    q.append((a,b))
-    
+    visited=[]
+    pos={(1,1),(1,2)}
+    visited.append(pos)
+    q.append((pos,0))
+
     while q:
-        x,y=q.popleft()
-        a,b=q.popleft()
-
-        if dic==1:
-            nx=
-
-
-        if nx<0 and nx>len(board)-1 and ny<0 and ny>len(board)-1 and na<0 and na>len(board)-1 and nb<0 and nb>len(board)-1:
-            continue
-        if graph[nx][ny]==0
-            graph[nx][ny]=graph[x][y]+2 # 일부로 2로함 나중에 2로 나눠야돼
-            q.append((nx,ny))
-        
-
+        pos,cost=q.popleft()
+        if (n,n) in pos:
+            return cost
+        for n_pos in bfs(pos,new_board):
+            if n_pos not in visited:
+                q.append((n_pos,cost+1))
+                visited.append(n_pos)
+    return 0
 
 
 
