@@ -1,4 +1,4 @@
-# 첫 번째 시도 최대힙 이용
+# 첫 번째 시도 최대힙 이용(성공했네 ㅎㅎ)
 import heapq
 
 def solution(n, works):
