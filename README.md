@@ -182,3 +182,20 @@ False
 True
 ```
 
+
+
+### heap
+
+```python
+import heapq
+
+h=[]
+
+for i in works:
+	heapq.heappush(h,i)
+
+print(h) # [3, 4, 3]
+
+heapq.heappop(h)
+```
+
