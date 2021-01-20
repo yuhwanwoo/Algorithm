@@ -157,6 +157,16 @@ y=[1,2,3,4,5,6,7]
 zip_x_y=zip(x,y)
 print(list(zip_x_y))
 // [('a', 1), ('b', 2), ('c', 3)]
+
+# zip 활용
+board=["CCBDE", "AAADE", "AAABF", "CCBBF"]
+
+print(board) # ['CCBDE', 'AAADE', 'AAABF', 'CCBBF']
+print(*board) # CCBDE AAADE AAABF CCBBF
+b = list(map(list,zip(*board))) 
+print(b) # [['C', 'A', 'A', 'C'], ['C', 'A', 'A', 'C'], ['B', 'A', 'A', 'B'], ['D', 'D', 'B', 'B'], ['E', 'E', 'F', 'F']]
+b2=list(map(list,zip(board)))
+print(b2) # [['CCBDE'], ['AAADE'], ['AAABF'], ['CCBBF']]
 ```
 
 ### startswith()와 endswith()
