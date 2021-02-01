@@ -18,6 +18,7 @@ def solution(n, stations, w):
         if i <=0: continue
         # 닿지 않는 거리에 설치할 수 있는 최소개수를 더해준다.
         result += math.ceil(i / ((w*2) +1))
+        print(result)
     return result
 
 n=16
