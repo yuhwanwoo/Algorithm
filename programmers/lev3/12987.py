@@ -1,4 +1,17 @@
-def solution(A, B):
+import heapq
+
+def solution(A,B):
+    answer=0
+    A.sort(reverse=True)
+
+    
+    
+
+    return answer
+
+
+# 1차 시도 실패(접근은 좋았는데 효율성 될줄알았는데 안되네 ㅎㅎ)
+def solution1(A, B):
     answer = 0
     A.sort(reverse=True)
     B.sort()
