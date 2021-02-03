@@ -4,9 +4,24 @@ def solution(A,B):
     answer=0
     A.sort(reverse=True)
 
+    heapB=[]
+    for i in B:
+        heapq.heappush(heapB,-i)
     
-    
-
+    while heapB:
+        
+        top=heapq.heappop(heapB)
+        print(A,top)
+        top=-top
+        for i in A:
+            if top<=i:
+                continue
+            else:
+                print("탑",top)
+                answer+=1
+                A.pop(0)
+                break
+    print(answer)
     return answer
 
 
