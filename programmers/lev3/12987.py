@@ -2,25 +2,30 @@ import heapq
 
 def solution(A,B):
     answer=0
-    A.sort(reverse=True)
 
     heapB=[]
+    heapA=[]
     for i in B:
         heapq.heappush(heapB,-i)
-    
-    while heapB:
+    for i in A:
+        heapq.heappush(heapA,-i)
+    while heapA:
         
-        top=heapq.heappop(heapB)
-        print(A,top)
-        top=-top
-        for i in A:
-            if top<=i:
-                continue
-            else:
-                print("탑",top)
-                answer+=1
-                A.pop(0)
-                break
+        print(heapA)
+        print(heapB)
+
+        topA=heapA[0]
+        topB=heapB[0]
+        
+        if topB<topA:
+            answer+=1
+            heapq.heappop(heapB)
+            heapq.heappop(heapA)
+        else:
+            heapq.heappop(heapA)
+        if not heapB:
+            break
+
     print(answer)
     return answer
 
