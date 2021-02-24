@@ -1,8 +1,37 @@
-def solution1(dartResult):
+def solution(dartResult):
     answer=0
+    tempNum=""
+    num=0
+    arr=[]
+    for i in range(len(dartResult)):
+        if dartResult[i].isdigit():
+            tempNum+=dartResult[i]
+        if dartResult[i].isalpha():
+            num=int(tempNum)
+            tempNum=""
+            if dartResult[i]=="S":
+                num=num
+            if dartResult[i]=="D":
+                num=(num*num)
+            if dartResult[i]=="T":
+                num=(num*num*num)
+            arr.append(num)
+        if dartResult[i]=="*":
+            if len(arr)>=2:
+                arr[-1]=(arr[-1]*2)
+                arr[-2]=(arr[-2]*2)
+            else:
+                arr[-1]=(arr[-1]*2)
+        if dartResult[i]=="#":
+            arr[-1]=(-arr[-1])
     
-    return answer
+    return sum(arr)
 
+
+dartResult="1S2D*3T"
+dartResult="1S*2T*3S"
+
+solution(dartResult)
 
 # 바로 전만 2배 하는거라 틀림
 def solution1(dartResult):
@@ -36,6 +65,3 @@ def solution1(dartResult):
         print(answer,"??")
     print(answer)
     return answer
-
-dartResult="1S2D*3T"
-solution(dartResult)
