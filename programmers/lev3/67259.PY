@@ -6,7 +6,12 @@ def solution(board):
     answer = 0
     cash=0
     temp=deque()
+
     
+
+    while temp:
+        break
+
     return answer
 
 board=[[0,0,0],[0,0,0],[0,0,0]]
