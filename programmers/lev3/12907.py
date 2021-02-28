@@ -1,3 +1,5 @@
+# https://dirmathfl.tistory.com/323
+
 def solution(n, money):
     answer = 0
     
