@@ -1,9 +1,1 @@
-n=int(input())
-
-
-arr=[]
-
-for _ in range(n):
-    arr.append(input().split())
-
-print(arr)
+#배열을 돌리도록하자

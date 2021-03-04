@@ -1,3 +1,4 @@
+# 다른 풀이는 그냥 프로그래머스에 풀었음
 def solution(n):
     answer = 0
     a=[0]*(n+2)
