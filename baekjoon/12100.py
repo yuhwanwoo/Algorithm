@@ -5,13 +5,18 @@ n=int(input())
 def remove_zero(arr):
     for i in range(len(arr)):
         l=len(arr)
-        for j in range(l):
-            if arr[i][j]==0:
+        j=0
+        while j<l:
+            if arr[i][j]==0:                
                 arr[i].pop(j)
                 arr[i].append(0)
                 j-=1
                 l-=1
+            j+=1
+                
     return arr
+
+
 
 
 # 배열 회전
@@ -30,6 +35,7 @@ def solution(arr,n):
         for i in arr:
             max_num=max(max_num,max(i))
         return max_num
+
     max_n=0
     for _ in range(4):
         length=len(arr)
@@ -41,19 +47,30 @@ def solution(arr,n):
             for j in range(length):
                 temp[i][j]=arr[i][j]
         # 배열 복사 끝
-
+        #print(temp)
+        temp=remove_zero(temp)
+        #print("==========================================")
+        #print(temp)
 
         for i in range(length):
             for j in range(length-1):
                 if temp[i][j]==temp[i][j+1] and temp[i][j]!=0:
                     temp[i][j]+=temp[i][j+1]
                     temp[i][j+1]=0
-        max_n=max(max_n,solution(remove_zero(temp),n+1))
+        #print(temp)
+        temp=remove_zero(temp)
         
+        #print(temp)
         
+        max_n=max(max_n,solution(temp,n+1))
+        
+        #print(temp)
 
     return max_n
-
+# 3
+# 4 8 16
+# 4 4 8
+# 8 4 4 
 
 arr=[]
 
