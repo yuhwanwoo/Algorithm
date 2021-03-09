@@ -16,9 +16,6 @@ def remove_zero(arr):
                 
     return arr
 
-
-
-
 # 배열 회전
 def rot_arr(arr):
     length=len(arr)
@@ -47,30 +44,21 @@ def solution(arr,n):
             for j in range(length):
                 temp[i][j]=arr[i][j]
         # 배열 복사 끝
-        #print(temp)
-        temp=remove_zero(temp)
-        #print("==========================================")
-        #print(temp)
+    
+        temp=remove_zero(temp)                 
 
-        for i in range(length):
+
+        for i in ran+=temp[i][j+1]
+                    temp[i][j+ge(length):
             for j in range(length-1):
                 if temp[i][j]==temp[i][j+1] and temp[i][j]!=0:
-                    temp[i][j]+=temp[i][j+1]
-                    temp[i][j+1]=0
-        #print(temp)
+                    temp[i][j]1]=0
+
         temp=remove_zero(temp)
         
-        #print(temp)
-        
         max_n=max(max_n,solution(temp,n+1))
-        
-        #print(temp)
 
     return max_n
-# 3
-# 4 8 16
-# 4 4 8
-# 8 4 4 
 
 arr=[]
 

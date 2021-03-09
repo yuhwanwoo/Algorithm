@@ -5,6 +5,11 @@ dy=[0,1,-1]
 def solution(n):
     answer = []
     data_map=[[0]*(i+1) for i in range(n)]
+    #      0
+    #    0   0
+    #  0   0   0 
+    #0   0   0   0
+    #
     data_map[0][0]=1
     nx=0
     ny=0
