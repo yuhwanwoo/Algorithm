@@ -32,5 +32,3 @@ for _ in range(N):
     foods = input_line[1:]
     nest.add(foods)
 nest.travel(0, nest.root)
-
-
