@@ -32,3 +32,5 @@ class Trie(object):
         #문자가 포함되어있다는 뜻이다.
         if curr_node.data != None:
             return True
+
+tri=Trie()
