@@ -1,4 +1,5 @@
 # 편집거리 알고리즘
+# https://countrysides.tistory.com/55
 
 def isCorrect(g,a):
     if g==a:
