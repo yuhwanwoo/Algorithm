@@ -20,6 +20,7 @@ def observe(temp,camera_num,x,y,i):
     ty=y
     ti=i
     if camera_num=="1":
+        print("ob안",temp)
         while True:
             nx=x+dx[ti]
             ny=y+dy[ti]
@@ -32,7 +33,9 @@ def observe(temp,camera_num,x,y,i):
             temp[nx][ny]="#"
             x=nx
             y=ny
+        print(temp)
     if camera_num=="2" or camera_num=="3":
+        print("ob2안",temp)
         for j in range(2):
             tx=x
             ty=y
@@ -53,6 +56,7 @@ def observe(temp,camera_num,x,y,i):
             if camera_num=="3":
                 ti=(ti+1)%4
     if camera_num=="4":
+        print("ob2안",temp)
         for j in range(3):
             tx=x
             ty=y
@@ -70,6 +74,7 @@ def observe(temp,camera_num,x,y,i):
                 ty=ny
             ti=(ti+1)%4
     if camera_num=="5":
+        print("ob5안",temp)
         for j in range(4):
             tx=x
             ty=y
@@ -89,6 +94,7 @@ def observe(temp,camera_num,x,y,i):
                 tx=nx
                 ty=ny
             ti=(ti+1)%4
+        print(temp)
 
     return temp
 
@@ -107,11 +113,12 @@ def solution(room,index):
                 if room[i][j]=="0":
                     cnt+=1
         cnt_n=min(cnt_n,cnt)
+        print(cnt_n,room)
         return None
     
 
     x,y=camera[index]
-    
+    print(camera)
     for i in range(4):
         tx=x
         ty=y
