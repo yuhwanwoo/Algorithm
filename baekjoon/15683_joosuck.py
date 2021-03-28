@@ -35,7 +35,7 @@ def observe(temp,camera_num,x,y,i):
             y=ny
         print(temp)
     if camera_num=="2" or camera_num=="3":
-        print("ob2안",temp)
+        print("ob23안",temp)
         for j in range(2):
             tx=x
             ty=y
@@ -56,7 +56,7 @@ def observe(temp,camera_num,x,y,i):
             if camera_num=="3":
                 ti=(ti+1)%4
     if camera_num=="4":
-        print("ob2안",temp)
+        print("ob4안",temp)
         for j in range(3):
             tx=x
             ty=y
@@ -116,7 +116,6 @@ def solution(room,index):
         print(cnt_n,room)
         return None
     
-
     x,y=camera[index]
     print(camera)
     for i in range(4):
