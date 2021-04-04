@@ -21,8 +21,22 @@ print(fish_map)
 print(dire_map)
 print(fish)
 
+# 물고기 16마리를 돌려
+def rot_fish(fish_map):
+    for i in range(1,17):
+        fx,fy=fish_map[i]
+        for i in range(8):
+            nx=fx+dire_map[(fx+i)%8]
+            ny=fx+dire_map[(fy+i)%8]
+            if fish_map[nx][ny] != 18 and nx>0 and ny<4 and ny>0 and ny<4:
+                fish_map[nx][ny]=i
+                
+                break
+
 def solution(x,y,num):
-    
+    if x<0 or y<0 or x>3 or y>3:
+        return num
+    fish_map[x][y]=18
     return 0
 
-solution(0,0,0)
+solution(0,0,fish_map[0][0])
