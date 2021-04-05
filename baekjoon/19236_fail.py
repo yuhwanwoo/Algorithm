@@ -17,19 +17,20 @@ for i in range(4):
         if j%2==1:
             dire_map[i].append(temp[j])
 
+print(fish.keys())
 print(fish_map)
 print(dire_map)
 print(fish)
 
 # 물고기 16마리를 돌려
 def rot_fish(fish_map):
-    fish.keys().sort()
-    for i in fish.keys():
-        fx,fy=fish_map[i]
+    keys=sorted(fish.keys())    
+    for i in keys:
+        fx,fy=fish[i]
         for i in range(8):
-            nx=fx+dx[dire_map[fx]-1+i]
-            ny=fy+dy[dire_map[fy]-1+i]
-            if fish_map[nx][ny] != 18 and nx>0 and ny<4 and ny>0 and ny<4:
+            nx=fx+dx[(dire_map[fx][fy]-1+i)%8]
+            ny=fy+dy[(dire_map[fy][fy]-1+i)%8]
+            if (nx>0 and ny<4 and ny>0 and nx<4) and fish_map[nx][ny] != 18 : 
                 # 원래 내값
                 temp_x,temp_y=fx,fy
                 temp=fish_map[fx][fy]
@@ -40,16 +41,31 @@ def rot_fish(fish_map):
                 dire_map[fx][fy]=dire_map[nx][ny]
                 fish_map[nx][ny]=temp
                 dire_map[nx][ny]=temp_dir
-
-                
                 break
 
+shark=(18,18)
 def solution(x,y,num):
     if x<0 or y<0 or x>3 or y>3:
         return num
-    eaten=fish_map[x][y]
-    del fish[eaten]
-    fish_map[x][y]
-    return 0
+    else:
+        shark=(x,y)
+        eaten=fish_map[x][y]
+        if eaten!=0 and eaten!=18  :
+            del fish[eaten]
+        fish_map[x][y]=18
+        rot_fish(fish_map)
+        for _ in range(3):
+            nx=x+dx[(dire_map[x][y]-1)%8]
+            ny=y+dy[(dire_map[x][y]-1)%8]   
+            if nx>=0 and ny>=0 and ny<4 and nx<4 and fish_map[nx][ny] != 18:
+                fish_map[x][y]=0
+                num=max(num,solution(nx,ny,num+fish_map[nx][ny]))
+            else:
+                break
+            fish_map[x][y]=0
+            x=nx
+            y=ny
+        
+    return num
 
-solution(0,0,fish_map[0][0])
+print(solution(0,0,fish_map[0][0]))
