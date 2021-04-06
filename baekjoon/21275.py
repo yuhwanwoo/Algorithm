@@ -1,0 +1,1 @@
+a,n=map(str,input().split())
