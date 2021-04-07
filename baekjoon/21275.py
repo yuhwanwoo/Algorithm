@@ -32,15 +32,18 @@ for i in b:
 answerA=0
 answerB=0
 
-18 36
+# 18 30
 
-36 18
+# 30 18
 
 
 # b진법이 더 큼
+# 18 부터 36
+# 30 부터 36
 for i in range(a_max+1,36):
-
-    for j in range(i+1,36):
+    for j in range(b_max+1,36):
+        if i==j:
+            continue
         if trans(a,i)==trans(b,j):
             if trans(a,i)>=2**63:
                 continue
@@ -48,21 +51,9 @@ for i in range(a_max+1,36):
             answerB=j
             cnt+=1
 
-
-# a진법이 더큼
-for i in range(b_max+1,36):
-    for j in range(i+1,36):
-        if trans(b,i)==trans(a,j):
-            if trans(b,i)>=2**63:
-                continue
-            # print(a,b,i,j)
-            answerA=j
-            answerB=i
-            cnt+=1
-
 if cnt==0:
     print("Impossible")
 elif cnt>1:
-    print(Multiple)
+    print("Multiple")
 elif cnt==1:
     print(trans(a,answerA),answerA,answerB)
