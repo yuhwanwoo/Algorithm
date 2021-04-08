@@ -1,6 +1,5 @@
 a,b=map(str,input().split())
 
-# print(a,b)
 num_dict=dict()
 for i in range(0,10):
     num_dict[str(i)]=i
@@ -9,7 +8,6 @@ for i in range(0,10):
 for i in range(26):
     num_dict[chr(97+i)]=i+10
 
-# print(num_dict)
 
 def trans(string, nary):
     answer=0
@@ -27,19 +25,9 @@ for i in a:
 for i in b:
     b_max=max(b_max,num_dict[i])
 
-#print(a_max,b_max)
-
 answerA=0
 answerB=0
 
-# 18 30
-
-# 30 18
-
-
-# b진법이 더 큼
-# 18 부터 36
-# 30 부터 36
 for i in range(a_max+1,36):
     for j in range(b_max+1,36):
         if i==j:
