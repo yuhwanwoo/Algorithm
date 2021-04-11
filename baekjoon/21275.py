@@ -4,10 +4,14 @@ num_dict=dict()
 for i in range(0,10):
     num_dict[str(i)]=i
 
+# 1:1 ~9:9
+# a:10 b:11 c: 12 ~~ z:35
+
 
 for i in range(26):
     num_dict[chr(97+i)]=i+10
 
+print(num_dict)
 
 def trans(string, nary):
     answer=0

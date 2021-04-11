@@ -1,11 +1,10 @@
 INF=int(1e9)
 ans=INF
 def dfs(begin,target,words,visited,answer):
-    
     if begin==target:
         global ans
         ans=min(ans,answer)
-        print("이건",answer,ans)
+        # print("이건",answer,ans)
         return answer
 
     for i in range(len(words)):
@@ -18,14 +17,13 @@ def dfs(begin,target,words,visited,answer):
             if cnt>1:
                 break
         if cnt==1:
-            print("출",words[i],answer)
+            # print("출",words[i],answer)
             visited[i]=1
             dfs(words[i],target,words,visited,answer+1)
             visited[i]=0
 
     return INF
     
-
 
 def solution(begin, target, words):
     answer = 0
