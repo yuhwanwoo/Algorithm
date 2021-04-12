@@ -1,4 +1,3 @@
-
 leng,cnt=0,0
 n,m=map(int,input().split())
 mapp=[[0]*(m+1)  for _ in range(n+1) ]
@@ -10,7 +9,6 @@ cnt=0
 def dfs(index):
     global cnt
     if leng==index:        
-        print(mapp)
         cnt+=1
         return
 

@@ -18,19 +18,18 @@ def fun(index,count):
         cnt=max(cnt,count)
         return
 
-    for i in range(leng):
+    for i in range(index,leng):
         x=i//n
         y=i%n
-        if isused01[x+y] or isused02[x-y+n-1]:
+        if isused01[x+y] or isused02[x-y+n-1] or chess_map[x][y]==0:
             continue
-        if chess_map[x][y]==1:
+        
 
-            isused01[x+y]=1
-            isused02[x-y+n-1]=1
-            fun(index+1,count+1)
-            
-            isused01[x+y]=0
-            isused02[x-y+n-1]=0
+        isused01[x+y]=1
+        isused02[x-y+n-1]=1
+        fun(index+1,count+1)
+        isused01[x+y]=0
+        isused02[x-y+n-1]=0
             continue
         if chess_map[x][y]==0:
             fun(index+1,count)
