@@ -8,8 +8,11 @@ mapp=[[2]*m  for _ in range(n) ]
 leng=n*m
 cnt=0
 
-def dfs(index,num):
-    global cnt,mapp
+def dfs(index,num,booln):
+    global cnt
+    if leng==index and booln==True:
+        cnt+=1
+        return
     if leng==index:
         return
     
@@ -17,31 +20,24 @@ def dfs(index,num):
     c=index%m
     mapp[r][c]=num
     
-    print(mapp)
+    # print(mapp)
 
-
-    if(r<n or r-1>=0 or c<m or c-1>=0):
+    if not booln:
         for i in range(1,n):
             judge=False
             for j in range(1,m):
                 if mapp[i][j-1]==1 and mapp[i-1][j]==1 and mapp[i-1][j-1]==1 and mapp[i][j]==1:
-                    cnt+=1
+                    booln=True
                     judge=True
                     break
             if judge:
                 break
 
 
-    temp=copy.deepcopy(mapp)    
-    dfs(index+1,1)
-    mapp=copy.deepcopy(temp)    
-    dfs(index+1,0)
 
 
-temp=copy.deepcopy(mapp)
-dfs(0,1)
-mapp=copy.deepcopy(temp)
-dfs(0,0)
+dfs(0,1,False)
+dfs(0,0,False)
 totalSum=1<<leng
 print(cnt)
-print(totalSum-cnt)
+print(totalSum-(cnt))
