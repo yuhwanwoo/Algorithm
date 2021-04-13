@@ -1,36 +1,53 @@
 n=int(input())
 
 chess_map=[]
-bishop=[]
+black=[]
+white=[]
+color=[[0]*n for _ in range(n)]
+
+for i in range(n):
+    for j in range(n):
+        color[i][j]=(i % 2 == 0 and j % 2 == 0) or (i % 2 != 0 and j % 2 != 0)
 
 for i in range(n):
     chess_map.append(list(map(int, input().split())))
     for j in range(n):
-        if chess_map[i][j]==1:
-            bishop.append((i,j))
-# print(bishop)
-leng=len(bishop)
-cnt=0
+        # True가 검은색
+        if chess_map[i][j]==1 and color[i][j]==1:
+            black.append((i,j))
+        # False가 흰색
+        if chess_map[i][j]==1 and color[i][j]==0:
+            white.append((i,j))
+
+Bcnt=0
+Wcnt=0
 
 isused01=[0]*(n*2-1)
 isused02=[0]*(n*2-1)
 
-def fun(index,count):
-    global cnt
-    if index==leng:
-        cnt=max(cnt,count)
+def fun(bishop,index,count):
+    global Bcnt, Wcnt
+    if index==len(bishop):
+        rx,ry=bishop[index-1]
+        if color[rx][ry]:
+            Bcnt=max(Bcnt,count)
+        else:
+            Wcnt=max(Wcnt,count)
         return
 
     x,y=bishop[index]
     if isused01[x+y] or isused02[x-y+n-1]:
-        fun(index+1,count)
+        fun(bishop,index+1,count)
     else:
         isused01[x+y]=1
         isused02[x-y+n-1]=1
-        fun(index+1,count+1)
+        fun(bishop,index+1,count+1)
         isused01[x+y]=0
         isused02[x-y+n-1]=0
-        fun(index+1,count)
+        fun(bishop,index+1,count)
 
-fun(0,0)
-print(cnt)
+if len(black)>0:
+    fun(black,0,0)
+if len(white)>0:
+    fun(white,0,0)
+print(Bcnt+Wcnt)
