@@ -15,7 +15,7 @@ def dfs(index):
     
     r=index//m+1
     c=index%m+1
-
+    # print(mapp)
     
     if mapp[r-1][c]==1 and mapp[r][c-1]==1 and mapp[r-1][c-1]==1:
         dfs(index+1)
