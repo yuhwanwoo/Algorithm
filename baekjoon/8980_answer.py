@@ -1,3 +1,7 @@
+# https://steadev.tistory.com/15
+# https://javaiyagi.tistory.com/586
+# https://jjangsungwon.tistory.com/114
+
 import sys
 
 n, c = map(int, sys.stdin.readline().split())
