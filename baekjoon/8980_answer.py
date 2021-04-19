@@ -18,7 +18,7 @@ print(remain)
 for i in range(m):
     temp = c  # c개를 옮길 수 있다고 가정
     for j in range(box[i][0], box[i][1]):
-        print(box[i][0], box[i][1], "box")
+        print(box[i][0], box[i][1], temp,remain)
         temp = min(temp, remain[j])
     temp = min(temp, box[i][2])
     for j in range(box[i][0], box[i][1]):
