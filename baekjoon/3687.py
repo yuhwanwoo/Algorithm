@@ -16,11 +16,11 @@ dp[4]=4
 dp[5]=2
 dp[6]=6
 dp[7]=8
-dp[8]=10
+# dp[8]=10
 
 add=["1", "7", "4", "2", "0", "8"]
 
-for i in range(9,101):
+for i in range(8,101):
     for j in range(2,8):
         cur=str(dp[i-j])+add[j-2]
         dp[i]=min(dp[i],int(cur))
