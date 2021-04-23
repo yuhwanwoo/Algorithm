@@ -21,4 +21,13 @@ for i in range(1,v+1):
 for i in range(e):
     a,b=map(int,input().split())
     union_parent(parent,a,b)
-## 이 뒤에 더있다
+
+print('각 원소가 속한 집합: ', end='')
+for i in range(1,v+1):
+    print(find_parent(parent,i), end=' ')
+
+print()
+
+print('부모 테이블: ', end='')
+for i in range(1,v+1):
+    print(parent[i],end=' ')
