@@ -14,11 +14,12 @@ class Trie:
                 
             cur = cur[food]
             
-        cur[0] = True # leaf node
+        # cur[0] = True # leaf node
 
     def travel(self, level,cur):
-        if 0 in cur:
-            return
+        # if 0 in cur:
+        #     print(cur)
+        #     return
         cur_children=sorted(cur)
 
         for child in cur_children:

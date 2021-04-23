@@ -1,4 +1,4 @@
-https://developmentdiary.tistory.com/453
+# https://developmentdiary.tistory.com/453
 
 import sys
 sys.setrecursionlimit(10**9)
