@@ -28,4 +28,7 @@ def solution(p):
     answer = ''
     if p=='':
         return answer
+    index=balanced_string(p)
+    u=[:index+1]
+    v=[index+1:]
     return answer
