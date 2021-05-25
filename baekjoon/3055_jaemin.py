@@ -55,7 +55,9 @@ while q:
         if data[nx][ny] != '*' and data[nx][ny] != 'X':
             result[nx][ny] = result[now_x][now_y] + 1
             q.append((nx, ny))
-
+            print(result)
+            
+print(result)
 if ans == 0:
     print('KAKTUS')
 else:
