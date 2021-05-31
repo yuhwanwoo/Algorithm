@@ -23,8 +23,10 @@ parent=[0]*(n+1)
 arr=[]
 
 for i in range(1,n+1):
+    # 발전소라면 parent가 0이다
     if i in power:
         continue
+    # 발전소가 아니라면 자기자신
     parent[i]=i
 
 for i in range(m):
