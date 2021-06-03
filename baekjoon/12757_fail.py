@@ -24,6 +24,7 @@ for i in range(m):
             cnt=0
             tmp=-1
             idx=0
+            flag=False
             for i in range(k):
                 data=dic.get(arr[1]+i+1,-2)
                 if data!=-2:
@@ -38,11 +39,13 @@ for i in range(m):
                     tmp=data
                     idx=arr[1]-i-1
                 if cnt>1:
+                    flag=True
                     break
                 if cnt==1:
+                    flag=True
                     dic[idx]=arr[2]
                     break
-            if tmp==-1:
+            if not flag:
                 continue
     if arr[0]==3:
         top=dic.get(arr[1],-2)
@@ -53,6 +56,7 @@ for i in range(m):
             minus=[-2]*k
             cnt=0
             tmp=-1
+            flag=False
             for i in range(k):
                 data=dic.get(arr[1]+i+1,-2)
                 if data!=-2:
@@ -64,15 +68,15 @@ for i in range(m):
                     cnt+=1
                     minus[i]=data
                     tmp=data
-                # print("plus",plus)
-                # print('minus',minus)
                 if cnt>1:
+                    flag=True
                     print("?")
                     break
                 if cnt==1:
+                    flag=True
                     print(tmp)
                     break
-            if tmp==-1:
+            if not flag:
                 print(-1)
                 continue
     # print(dic)
