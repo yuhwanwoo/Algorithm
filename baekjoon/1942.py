@@ -11,27 +11,27 @@ for i in range(3):
     edH,edM,edS=map(int,end.split(":"))
 
     stime=datetime.datetime(2021,1,1,stH,stM,stS)
-    # stime=stime+timedelta(seconds=20)
 
     tmp_time=stime.strftime('%H%M%S')
-    # print(d)
 
+    # 1씩 더하기 때문
     sec=1
+
     cnt=0
     if int(tmp_time)%3==0:
             cnt+=1
     etime=datetime.datetime(2021,1,1,edH,edM,edS)
     etime=etime.strftime('%H%M%S')
-    #print(tmp_time,etime)
 
     while True:
         if tmp_time==etime:
             break
+        
+        # sec만큼 증가 (여기서 sec은 1)
         stime=stime+timedelta(seconds=sec)
         tmp_time=stime.strftime('%H%M%S')
         if int(tmp_time)%3==0:
             cnt+=1
-        #print(tmp_time,etime,cnt)
-        # break
+
 
     print(cnt)
