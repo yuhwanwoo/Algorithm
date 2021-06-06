@@ -1,8 +1,7 @@
-n=3
+import bisect
 
-arr=[]
+arr=[1,2,4,4,5]
 
-for i in range(3):
-    arr.append(map(int,input().split()))
-
+idx=bisect.bisect(arr,3)
+print(idx)
 print(arr)
