@@ -1,3 +1,4 @@
+# pypy만 통과
 import bisect
 import sys
 
@@ -15,8 +16,8 @@ for _ in range(t):
     for l in range(n):
         for m in range(n):
             list1[0].append(arr[0][l]+arr[1][m])
-            list1[1].append(arr[2][l]+arr[3][m])
-    list1[1].sort()
+            bisect.insort(list1[1],arr[2][l]+arr[3][m])
+    # list1[1].sort()
     # list1[0].sort()
     
     ans=int(1e9)
