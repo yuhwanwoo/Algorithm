@@ -7,6 +7,9 @@ arr2=list(map(str,input().split()))
 
 cnt=0
 arr=[""]*s1
+arr=["222","",""]
+# 222  0
+#  22  1
 
 def dfs(i):
     global cnt
@@ -16,6 +19,7 @@ def dfs(i):
         return
     if i==0 or i==1:
         temp_arr=list(map(''.join,product(arr2,repeat=arr1[i])))
+        print(temp_arr)
         # print(temp_arr)
         for num in temp_arr:
             arr[i]=num
