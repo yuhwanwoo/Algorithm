@@ -1,6 +1,5 @@
 from collections import deque
-# import sys
-# input=lambda : sys.stdin.readline().rstrip()
+
 m,n=map(int,input().split())
 
 dx=[0,1,0,-1]
@@ -12,6 +11,7 @@ q=deque()
 
 for i in range(m):
     arr.append(list(map(int,input())))
+    # 맨 윗줄이 0인 부분만 q에 저장
     for j in range(n):
         if i==0 and arr[i][j]==0:
             arr[i][j]=2

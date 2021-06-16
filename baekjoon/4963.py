@@ -13,13 +13,10 @@ while True:
         break
     arr=[]
 
-    q=deque()
-
+    # 입력
     for i in range(c):
         arr.append(list(map(int,input().split())))
-        # for j in range(r):
-        #     if arr[i][j]==1:
-        #         q.append((i,j))
+
     
     visited=[[False]*r for _ in range(c)]
     cnt=0
@@ -37,8 +34,7 @@ while True:
 
         return
 
-    
-
+    # 1인 부분 찾을 때 마다 dfs
     for i in range(c):
         for j in range(r):
             if arr[i][j]==1 and not visited[i][j]:
