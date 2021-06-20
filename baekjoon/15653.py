@@ -24,7 +24,6 @@ for i in range(n):
 def dfs(rx,ry,bx,by,cnt):
 
     q.append((rx,ry,bx,by))
-
     while q:
         rx,ry,bx,by=q.popleft()
 
