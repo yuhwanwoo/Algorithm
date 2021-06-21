@@ -26,7 +26,6 @@ def dfs(rx,ry,bx,by,cnt):
     q.append((rx,ry,bx,by))
     while q:
         rx,ry,bx,by=q.popleft()
-
         for i in range(4):
             nrx=rx+dx[i]
             nry=ry+dy[i]

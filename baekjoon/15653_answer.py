@@ -50,7 +50,7 @@ def bfs():
                 if not c[nrx][nry][nbx][nby]:
                     c[nrx][nry][nbx][nby] = 1
                     q.append([nrx, nry, nbx, nby])
-
+                    
         cnt += 1
     print(-1)
     return
