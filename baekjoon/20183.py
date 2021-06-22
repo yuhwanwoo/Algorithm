@@ -1,50 +1,57 @@
-# 부분성공
 import heapq
 import sys
 
 input=sys.stdin.readline
-sys.setrecursionlimit(10**9)
 
 n,m,a,b,c=map(int,input().split())
+INF=int(1e14)+1
+graph=[[] for _ in range(n)]
 
-graph=[[] for _ in range(n+1)]
-visited=[False]*(n+1)
+def dijkstra(mid):
+    pq=[]
+    cost=[INF]*(n+1)
+    heapq.heappush(pq,(0,a))
+    cost[a] = 0
+    while pq:
+        _c,cur=heapq.heappop(pq)
+        if cost[cur] != _c:
+            continue
+        for i in graph[cur]:
+            nxt,cst=i
+            if cst>mid:
+                continue
+            if cost[nxt]>cost[cur]+cst :
+                cost[nxt]=cost[cur]+cst
+                # if nxt==b and cost[nxt]<=c:
+                #     return True
+                heapq.heappush(pq,(cost[nxt],nxt))
+    return cost[b]<=c
 
-ans=int(1e9)
-
+# 0 index로 하기위해서
+a-=1
+b-=1
+costs = []
 for i in range(m):
     s,e,d=map(int,input().split())
-    heapq.heappush(graph[s],(d,e))
-    heapq.heappush(graph[e],(d,s))
+    s-=1
+    e-=1
+    graph[s].append((e,d))
+    graph[e].append((s,d))
+    heapq.heappush(costs,-d)
 
-q=[]
+costs = sorted(costs)
+L=0
+R=-heapq.heappop(costs)
+ans=INF
+while L<=R:
+    mid=(L+R)//2
+    if dijkstra(mid):
+        ans=min(ans,mid)
+        R=mid-1
+    else:
+        L=mid+1
 
-def dfs(st,dis,bigger):
-    global ans
-    if st==b:
-        # ans=min(ans,bigger)
-        heapq.heappush(q,bigger)
-        return
-    leng=len(graph[st])
-    for _ in range(leng):
-        dist,ed=heapq.heappop(graph[st])
-        # print(st,ed,dist)
-        if not visited[ed]:         
-            visited[ed]=True
-            if dis+dist<=c:            
-                dfs(ed,dis+dist,max(bigger,dist))
-            visited[ed]=False
-
-visited[a]=True
-dfs(a,0,0)
-
-if q:
-    ans=heapq.heappop(q)
-    print(ans)
-else:
+if ans==INF:
     print(-1)
-
-# if ans==int(1e9):
-#     print(-1)
-# else:
-#     print(ans)
+else:
+    print(ans)
