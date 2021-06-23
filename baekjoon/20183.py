@@ -13,8 +13,8 @@ def dijkstra(mid):
     heapq.heappush(pq,(0,a))
     cost[a] = 0
     while pq:
-        _c,cur=heapq.heappop(pq)
-        if cost[cur] != _c:
+        cos,cur=heapq.heappop(pq)
+        if cost[cur] != cos:
             continue
         for i in graph[cur]:
             nxt,cst=i
@@ -22,8 +22,8 @@ def dijkstra(mid):
                 continue
             if cost[nxt]>cost[cur]+cst :
                 cost[nxt]=cost[cur]+cst
-                # if nxt==b and cost[nxt]<=c:
-                #     return True
+                if nxt==b and cost[nxt]<=c:
+                    return True
                 heapq.heappush(pq,(cost[nxt],nxt))
     return cost[b]<=c
 
