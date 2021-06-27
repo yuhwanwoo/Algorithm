@@ -21,7 +21,6 @@ for _ in range(t):
             q.append(i)
             seq[i][0]=1
             
-
     result=[]
 
     while q:

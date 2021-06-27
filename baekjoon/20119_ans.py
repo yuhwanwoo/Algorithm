@@ -25,6 +25,8 @@ result = set()
 for num in own_liquid:
     possible_list[num] = True
     result.add(num)
+
+print(recipe_dict)
 queue = deque(own_liquid)
 while queue:
     cur_num = queue.popleft()

@@ -15,6 +15,7 @@ def divide_and_fill(x,y,size):
     input_position = [[x+next_size-1,y+next_size-1],[x+next_size,y+next_size-1],[x+next_size-1,y+next_size],[x+next_size,y+next_size]]
     for ind,val in enumerate([[x,y],[x+next_size,y],[x,y+next_size],[x+next_size,y+next_size]]):
         sx,sy = val
+        print(sx,sy)
         input_x,input_y = input_position[ind]
         if check(sx,sy,next_size):
             result[input_x][input_y] = numbers
