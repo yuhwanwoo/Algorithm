@@ -13,6 +13,7 @@ def dfs(pos,visited,deep,hap):
             dfs(pos,visited,deep+1,hap+score)
             visited[pe]=False
     return
+    
 while True:
     ans=0
     pos=[[] for _ in range(11)]
