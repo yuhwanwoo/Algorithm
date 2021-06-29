@@ -1,3 +1,5 @@
+# https://www.acmicpc.net/source/share/528c4aa3c991463db46d79f859a1dc86
+
 from collections import deque
 import sys
 
@@ -9,7 +11,7 @@ m=int(input())
 indegree=[0]*(n+1)
 graph=[[] for _ in range(n+1)]
 result=[[0,""] for _ in range(n+1)]
-
+visited=[False]*(n+1)
 q=deque()
 
 for i in range(m):
@@ -20,20 +22,21 @@ for i in range(m):
 result[1][1]="1"
 q.append(1)
 
-while q:
-    now=q.popleft()
+def ind():
+    while q:
+        now=q.popleft()
+        visited[now]=False
+        for loc in graph[now]:
+            i,cost=loc
+            indegree[i]-=1
+            if result[i][0]<=result[now][0]+cost:
+                result[i][0]=result[now][0]+cost
+                result[i][1]=result[now][1]
+                result[i][1]+=str(i)
+                if not visited[i] and i!=1:
+                    q.append(i)
 
-    for loc in graph[now]:
-        i,cost=loc
-        indegree[i]-=1
-        if result[i][0]<result[now][0]+cost:
-            result[i][0]=result[now][0]+cost
-            result[i][1]=result[now][1]
-            result[i][1]+=str(i)
-        if indegree[i]==0:
-            if indegree[1]==0:
-                break
-            q.append(i)
-print(result)
+ind()
+# print(result)
 print(result[1][0])
 print(*list(result[1][1]))
