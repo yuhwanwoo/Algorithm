@@ -1,7 +1,4 @@
 from collections import deque
-import sys
-
-input=sys.stdin.readline
 
 t = int(input())
 
@@ -28,27 +25,23 @@ while t:
                 xvalue[1] = build_time[i]
     
     # print(xvalue)
-    target=int(input())
+    n=int(input())
     answer=int(1e9)
-    tmp=[]
     while q:
         now, deg = q.popleft()
-        if i == target:
-            answer=min(answer,sum(xvalue[1:deg]))
+        if now == n:
+            answer=min(answer,sum(xvalue[:deg]))
+            answer+=build_time[now]
         # print(now,deg)
         for i in graph[now]:
             indegree[i] -= 1
             # print(i,xvalue)
             if xvalue[deg+1] < build_time[i]:
                 xvalue[deg+1] = build_time[i]
-            
+
             if indegree[i] == 0:
                 q.append((i,deg+1))
-    # if answer == int(1e9):
-    #     answer=xvalue[1]
-    # else:
-    #     answer+=build_time[target]
-    # print(tmp)
-    print(xvalue)
-    print("ans:",answer+build_time[target])
+    
+    # print(xvalue)
+    print("ans",answer)
     t-=1
