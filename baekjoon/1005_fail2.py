@@ -2,7 +2,6 @@ from collections import deque
 
 t = int(input())
 
-
 while t:
     n, k = map(int, input().split())
     xvalue = [0] * (n+2)

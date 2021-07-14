@@ -18,7 +18,7 @@ def pip_list(pipe):
     if pipe == "4":
         return [2,3]
 
-visited = [[False]*c for _ in range(r)]
+visited = [[False] * c for _ in range(r)]
 arr = []
 start = []
 
@@ -32,7 +32,7 @@ for i in range(r):
         if arr[i][j] == "M" or arr[i][j] == "Z":
             visited[i][j] == True
             start.append((i,j))
-q=deque()
+q = deque()
 
 ax = 0
 ay = 0
@@ -62,6 +62,7 @@ flag=False
 for s in start:
     x, y = s
     visited[x][y] = True
+    # 북 동 남 서
     for i in range(4):
         nx = x + dx[i]
         ny = y + dy[i]
@@ -83,6 +84,7 @@ for s in start:
         break
 pipe=""
 direction = [False]*4
+[False, False, False, False]
 if flag :
     # 북0 동1 남2 서3
     for i in range(4):
