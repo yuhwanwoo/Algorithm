@@ -8,7 +8,6 @@ ones = []
 
 cnt = [0] * 6
 answer = 30
-
 def sol(idx):
     global answer
     # print(idx)
@@ -60,6 +59,7 @@ def sol(idx):
 
 for i in range(10):
     arr.append(list(map(int, input().split())))
+
 
 sol(0)
 
