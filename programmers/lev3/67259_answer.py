@@ -1,3 +1,6 @@
+# 이것도 있음
+# https://deok2kim.tistory.com/92
+
 def solution(board):
 
     N = len(board)
