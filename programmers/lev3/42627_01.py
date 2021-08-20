@@ -18,11 +18,13 @@ def solution(jobs):
         if len(heap) > 0:
             cnt += 1
             start = time
-            term,sta = heapq.heappop(heap)
+            term, sta = heapq.heappop(heap)
             time += term
+            print(start, time)
             answer += (time - sta)
         else:
-            time = 1
+            time += 1
+        
 
     return answer // size
 
