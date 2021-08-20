@@ -12,6 +12,9 @@ def solution(genres, plays):
     # print(genres_sum)
     genres_sum = sorted(genres_sum.items(), key = lambda x:x[1], reverse = True)
     # print(genres_sum)
+    genres_sum = sorted(genres_dict.items(), key = lambda x:sum(x[1]), reverse = True)
+    print(genres_dict)
+    print(genres_sum)
 
     for key in genres_dict.keys():
         genres_dict[key].sort(key = lambda x:(-x[0], x[1]))
@@ -34,7 +37,7 @@ def solution(genres, plays):
 
 
 genres = ["classic", "aop", "classic", "classic", "aop"]
-plays = [500, 600, 150, 800, 2500]
+plays = [500, 600, 150, 800, 250]
 
 # genres=["classic","classic","classic","classic","pop"]
 # plays=[500,150,800,800,2500]

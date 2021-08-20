@@ -20,7 +20,6 @@ def solution(jobs):
             start = time
             term, sta = heapq.heappop(heap)
             time += term
-            print(start, time)
             answer += (time - sta)
         else:
             time += 1
