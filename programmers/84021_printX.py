@@ -28,7 +28,7 @@ def judge(extention_map):
                     ny = j + dy[n]
                     if nx < 0 or ny < 0 or nx >= temp_size or ny >= temp_size:
                             continue
-                    if extention_map[nx][ny] == 0:
+                    if extention_map[nx][ny] == 0 or extention_map[nx][ny] == 3:
                         return False
     
     if flag == False:
@@ -60,7 +60,6 @@ def solution(game_board, table):
                 while q:
                     cx, cy = q.popleft()
                     block_loc.append((cx, cy))
-                    print(cx,cy)
                     block_size += 1
                     temp_table[cx][cy] = 2
                     table[cx][cy] = 0
@@ -77,22 +76,20 @@ def solution(game_board, table):
                 flag = False
                 for _ in range(4):
                     temp_table = rot_arr(temp_table)
-                    for m in range(size * 2):
-                        for n in range(size * 2):
+                    for m in range(1, size * 2):
+                        for n in range(1, size * 2):
                             for x in range(size):
                                 for y in range(size):
                                     extention_map[m + x][n + y] += temp_table[x][y]
                             if judge(extention_map) == True:
-                                for v in extention_map:
-                                    print(v)
                                 for x in range(size):
                                     for y in range(size):
                                         if extention_map[m + x][n + y] == 2:
                                             extention_map[m + x][n + y] = 1
 
                                 answer += block_size
-                                print("ans", answer, block_size)
                                 flag = True
+
                             else:
                                 for x in range(size):
                                     for y in range(size):
@@ -103,16 +100,10 @@ def solution(game_board, table):
                             break
                     if flag:
                         break
-                print(table)
-                print(temp_table)
-                    
-    print("=======================")
+
 
     return answer
 
 game_board = [[1,1,0,0,1,0],[0,0,1,0,1,0],[0,1,1,0,0,1],[1,1,0,1,1,1],[1,0,0,0,1,0],[0,1,1,1,0,0]]
 table = [[1,0,0,1,1,0],[1,0,1,0,1,0],[0,1,1,0,1,1],[0,0,1,0,0,0],[1,1,0,1,1,0],[0,1,0,0,0,0]]
-
-game_board = [[0,0,0],[1,1,0],[1,1,1]]
-table = [[1,1,1],[1,0,0],[0,0,0]]
 print(solution(game_board, table))
