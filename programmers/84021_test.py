@@ -10,23 +10,23 @@ def rot_arr(arr):
 
     return rotated_arr
 
-def judge(extention_map):
+def judge(extention_map, m, n):
     dx = [-1, 0, 1, 0]
     dy = [0, 1, 0, -1]
     # print("ex", extention_map)
 
-    temp_size = len(extention_map)
+    temp_size = len(extention_map) // 3
     flag = False
     for i in range(temp_size):
         for j in range(temp_size):
-            if extention_map[i][j] == 3:
+            if extention_map[m + i][n + j] == 3:
                 return False
-            if extention_map[i][j] == 2:
+            if extention_map[m + i][n + j] == 2:
                 flag = True
-                for n in range(4):
-                    nx = i + dx[n]
-                    ny = j + dy[n]
-                    if nx < 0 or ny < 0 or nx >= temp_size or ny >= temp_size:
+                for di in range(4):
+                    nx = m + i + dx[di]
+                    ny = n + j + dy[di]
+                    if nx < 0 or ny < 0 or nx >= temp_size * 3 or ny >= temp_size * 3:
                             continue
                     if extention_map[nx][ny] == 0 or extention_map[nx][ny] == 3:
                         return False
@@ -86,12 +86,18 @@ def solution(game_board, table):
                         for y in range(size):
                             extention_map[m + x][n + y] += temp_table[x][y]
                     
-                    if judge(extention_map) == True:
+                    if judge(extention_map, m, n) == True:
+                        # print(m, n)
+                        # for v in extention_map:
+                        #     print(v)
+                        print("=====================")
                         for x in range(size):
                             for y in range(size):
                                 if extention_map[m + x][n + y] == 2:
                                     extention_map[m + x][n + y] = 1
-                        
+                        # print(answer, block_size,"|||  m, n :", m, n)
+                        for v in extention_map:
+                            print(v)
                         answer += block_size
                         flag = True
                     else:
@@ -110,4 +116,8 @@ def solution(game_board, table):
 
 game_board = [[1,1,0,0,1,0],[0,0,1,0,1,0],[0,1,1,0,0,1],[1,1,0,1,1,1],[1,0,0,0,1,0],[0,1,1,1,0,0]]
 table = [[1,0,0,1,1,0],[1,0,1,0,1,0],[0,1,1,0,1,1],[0,0,1,0,0,0],[1,1,0,1,1,0],[0,1,0,0,0,0]]
+# game_board = [[0,0,0],[1,1,0],[1,1,1]]
+# table = [[1,1,1],[1,0,0],[0,0,0]]
+#game_board = [[0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0], [1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0], [1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1], [0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0], [0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1], [0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0], [0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0], [1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0], [0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0], [0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1], [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0]]
+#table = [[1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1], [1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1], [1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0], [0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0], [1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0], [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0], [1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1], [1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1], [0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1], [1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1], [1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1], [1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1]]
 print(solution(game_board, table))
