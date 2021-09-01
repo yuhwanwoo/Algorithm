@@ -80,8 +80,8 @@ def solution(game_board, table):
         flag = False
         for _ in range(4):
             temp_table = rot_arr(temp_table)
-            for m in range(1, size * 2):
-                for n in range(1, size * 2):
+            for m in range(1, size * 2 - 1):
+                for n in range(1, size * 2 - 1):
                     for x in range(size):
                         for y in range(size):
                             extention_map[m + x][n + y] += temp_table[x][y]
