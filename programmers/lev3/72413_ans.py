@@ -22,7 +22,6 @@ def solution(n, s, a, b, fares):
                     temp = min(graph[y][z], graph[y][x] + graph[x][z])
                     graph[z][y] = temp
                     graph[y][z] = temp
-    print(graph)
     
     for t in range(n):
         temp = graph[s - 1][t] + graph[t][b - 1] + graph[t][a - 1]
