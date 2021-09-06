@@ -14,7 +14,6 @@ def solution(n, times):
             right = mid
         else:
             left = mid + 1
-        print(left, right, n)
 
     return left
 
