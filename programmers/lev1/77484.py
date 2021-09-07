@@ -11,7 +11,7 @@ def solution(lottos, win_nums):
             win_cnt += 1
         if lotto == 0:
             cnt_0 += 1
-    print(win_cnt, cnt_0)
+    # print(win_cnt, cnt_0)
 
     if (win_cnt + cnt_0) < 2:
         answer.append(6)
@@ -23,7 +23,7 @@ def solution(lottos, win_nums):
     else:
         answer.append(7 - win_cnt)
     
-    print(answer)
+    # print(answer)
     return answer
 
 lottos = [44, 1, 0, 0, 31, 25]
