@@ -30,8 +30,6 @@ def solution(rows, columns, queries):
         graph[x2 - 2][y1 - 1] = temp2
         answer.append(ans)
 
-    # for i in graph:
-    #     print(i)
     print(answer)
 
     return answer
