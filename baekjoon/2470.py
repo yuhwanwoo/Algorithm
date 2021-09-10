@@ -3,16 +3,10 @@ arr = list(map(int, input().split()))
 
 answer = int(1e9)
 
-ansi = 0
-ansj = 0
+start = 0
+end = 1
 
-for i in range(n - 1):
-    for j in range(i + 1 , n):
-        if abs(arr[i] + arr[j]) < abs(answer):
-            answer = arr[i] + arr[j]
-            ansi = arr[i]
-            ansj = arr[j]
-
-ans = [ansi, ansj]
-ans.sort()
-print(ansi, ansj)
+while True:
+    tmp = arr[start] + arr[end]
+    if abs(tmp) < abs(answer):
+        
