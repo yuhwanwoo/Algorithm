@@ -33,6 +33,7 @@ def solution(gems):
             left += 1
     
     answer.sort()
+    
     ans = [answer[0][1] + 1, answer[0][2]]
     
     return ans
