@@ -1,5 +1,4 @@
 def solution(s):
-    answer = 0
     s = s.replace("one", "1")
     s = s.replace("two", "2")
     s = s.replace("three", "3")
