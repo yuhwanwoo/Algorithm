@@ -23,9 +23,11 @@ for i in range(n):
         total += balls[j][0]
         ball_sum_dict[balls[j][1]] += balls[j][0]
         j += 1
-    
+    print("total", total, ball_sum_dict, balls[i])
     answer[balls[i][2]] = total - ball_sum_dict[balls[i][1]]
 
 print(ball_sum_dict)
 print(balls)
 print(answer)
+for i in range(n):
+    print(answer[i])
