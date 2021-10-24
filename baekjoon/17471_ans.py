@@ -1,3 +1,7 @@
+import sys
+import collections
+import itertools
+
 def bfs(same): 
     start = same[0] 
     q = collections.deque([start]) 
@@ -20,7 +24,7 @@ result = float('inf')
 for i in range(n): 
     _input = [int(x) for x in sys.stdin.readline().split()] 
     for j in range(1, _input[0]+1): 
-        g[i].append(_input[j]-1) 
+        g[i].append(_input[j] - 1) 
 
 for i in range(1, n//2 + 1): 
     combis = list(itertools.combinations(range(n), i)) 
@@ -35,4 +39,4 @@ if result != float('inf'):
 else: 
     print(-1)
 
-출처: https://cotak.tistory.com/66 [Pool's Taek]
+print(g)

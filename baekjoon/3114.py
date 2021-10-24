@@ -42,8 +42,8 @@ for i in range(1, r + 1):
 for i in range(2, c + 1):
     for j in range(1, r + 1):
         apple = int(graph[j][i][1]) if graph[j][i][0] == 'A' else 0
-        print(apple)
         dp[j][i] = max(dp[j - 1][i - 1], dp[j][i - 1] + tSum[j][i], dp[j - 1][i] - apple)
+
 print(tSum)
 print(dp)
 print(dp[r][c])
