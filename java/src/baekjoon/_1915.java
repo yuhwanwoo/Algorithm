@@ -30,7 +30,6 @@ public class _1915 {
         for (int i = 1; i < n; i++) {
             for (int j = 1; j < m; j++) {
                 if (arr[i][j] == 1) {
-
                     if (arr[i - 1][j] != 0 && arr[i - 1][j - 1] != 0 && arr[i][j - 1] != 0) {
                         int tmp = Math.min(arr[i - 1][j], arr[i - 1][j - 1]);
                         tmp = Math.min(tmp, arr[i][j - 1]);
