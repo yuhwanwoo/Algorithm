@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class _16951 {
+public class _16951_ans {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -23,14 +23,23 @@ public class _16951 {
         }
 
         for (int i = 0; i < n; i++) {
+            int tmp = 0;
+            for (int j = 0; j < n; j++) {
+                int now = k * (j - i) + arr[i];
 
-            for (int j = i - 1; j >= 0; j--) {
-                
+                if (now < 1) {
+                    tmp = n;
+                    break;
+                }
+                if (now != arr[j]) {
+                    tmp += 1;
+                }
+
             }
-
-            break;
+            answer = Math.min(answer, tmp);
         }
 
+        System.out.println(answer);
 
     }
 }
