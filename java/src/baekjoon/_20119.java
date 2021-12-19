@@ -13,6 +13,6 @@ public class _20119 {
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
 
-
+        
     }
 }
