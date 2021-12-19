@@ -20,7 +20,7 @@ public class _5875_ans {
 
         String[] arr = input.split("");
 
-
+//
 
         for (int i = 0; i < size; i++) {
             if (arr[i].equals("(")) {
@@ -45,6 +45,6 @@ public class _5875_ans {
             result = left_bracket;
         }
 
-        System.out.println(result);
+        System.out.println("res: " + result);
     }
 }
