@@ -37,7 +37,7 @@ public class _5052 {
                 return false;
             }
         }
-
+        // 깃 오류 확인
         return true;
     }
 }
