@@ -1,0 +1,7 @@
+a,b,c=input().split(".")
+y=int(a)
+m=int(b)
+d=int(c)
+print("%04d" %y,end='.')
+print("%02d" %m,end='.')
+print("%02d" %d)
