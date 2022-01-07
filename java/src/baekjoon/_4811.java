@@ -13,7 +13,7 @@ public class _4811 {
             if (n == 1) {
                 break;
             }
-            
+
         }
     }
 }
