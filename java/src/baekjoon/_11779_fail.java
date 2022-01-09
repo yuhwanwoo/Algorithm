@@ -9,7 +9,7 @@ public class _11779_fail {
 
     public static int n, m, start, end;
 
-    public static ArrayList<ArrayList<Node>> graph = new ArrayList<>();
+    public static ArrayList<ArrayList<Nodes>> graph = new ArrayList<>();
 
     public static int[] d;
 
@@ -25,7 +25,7 @@ public class _11779_fail {
 
 
         for (int i = 0; i <= n; i++) {
-            graph.add(new ArrayList<Node>());
+            graph.add(new ArrayList<Nodes>());
         }
 
         d = new int[n + 1];
@@ -36,7 +36,7 @@ public class _11779_fail {
             int start = Integer.parseInt(st.nextToken());
             int dest = Integer.parseInt(st.nextToken());
             int dis = Integer.parseInt(st.nextToken());
-            graph.get(start).add(new Node(dest, dis));
+            graph.get(start).add(new Nodes(dest, dis));
         }
         st = new StringTokenizer(br.readLine());
         start = Integer.parseInt(st.nextToken());
@@ -55,13 +55,13 @@ public class _11779_fail {
     }
 
     private static void dijkstra(int start) {
-        PriorityQueue<Node> pq = new PriorityQueue<>();
+        PriorityQueue<Nodes> pq = new PriorityQueue<>();
 
         d[start] = 0;
-        pq.offer(new Node(start, 0));
+        pq.offer(new Nodes(start, 0));
 
         while (!pq.isEmpty()) {
-            Node node = pq.poll();
+            Nodes node = pq.poll();
             int now = node.getIndex();
             int dist = node.getDistance();
 
@@ -73,7 +73,7 @@ public class _11779_fail {
                 int cost = graph.get(now).get(i).getDistance() + d[now];
                 if (cost < d[graph.get(now).get(i).getIndex()]) {
                     d[graph.get(now).get(i).getIndex()] = cost;
-                    pq.offer(new Node(graph.get(now).get(i).getIndex(), cost));
+                    pq.offer(new Nodes(graph.get(now).get(i).getIndex(), cost));
                     route[graph.get(now).get(i).getIndex()] = now;
                 }
             }
@@ -87,7 +87,7 @@ public class _11779_fail {
     }
 }
 
-class Node implements Comparable<Node> {
+class Node implements Comparable<Nodes> {
 
     int index;
     int distance;
@@ -106,7 +106,7 @@ class Node implements Comparable<Node> {
     }
 
     @Override
-    public int compareTo(Node o) {
+    public int compareTo(Nodes o) {
         if (this.distance < o.distance) {
             return -1;
         }
