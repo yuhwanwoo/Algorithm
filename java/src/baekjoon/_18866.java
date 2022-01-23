@@ -11,10 +11,29 @@ public class _18866 {
 
         int n = Integer.parseInt(br.readLine());
 
+        int[] happiness = new int[n];
+        int[] fatigue = new int[n];
+
         for (int i = 0; i < n; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             int u = Integer.parseInt(st.nextToken());
             int v = Integer.parseInt(st.nextToken());
+            happiness[i] = u;
+            fatigue[i] = v;
         }
+
+        int hs = 0;
+        int he = n - 1;
+        int fs = 0;
+        int fe = n - 1;
+
+        int hmax = 0;
+        int hmin = Integer.MAX_VALUE;
+
+        while (true) {
+
+        }
+
+
     }
 }
