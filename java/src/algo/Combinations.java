@@ -1,29 +1,27 @@
-package baekjoon;
+package algo;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class _2798 {
+public class Combinations {
     static int[] arr;
+    static boolean[] visited;
     static int[] output;
     static int  n;
-    static int  m;
     static int  r;
     static int answer;
-    static int gap = 300000;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-
         n = Integer.parseInt(st.nextToken());
-        m = Integer.parseInt(st.nextToken());
+        r = Integer.parseInt(st.nextToken());
 
         arr = new int[n];
+        visited = new boolean[n];
         output = new int[n];
-        r = 3;
 
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
@@ -31,24 +29,18 @@ public class _2798 {
         }
 
         combinations(0, 0);
-        
-        // 조합으로 풀자
+
         System.out.println(answer);
+
     }
 
     public static void combinations(int depth, int start) {
         if (depth == r) {
             int sum = 0;
             for(int i = 0; i < r; i++) {
-                sum += output[i];
+                System.out.print(output[i] + " ");
             }
-            if (sum <= m) {
-                int tmp_gap = Math.abs(sum - m);
-                if (gap >= tmp_gap) {
-                    gap = tmp_gap;
-                    answer = sum;
-                }
-            }
+            System.out.println();
 
             return;
         }
