@@ -38,6 +38,17 @@ public class _16562 {
             int w = Integer.parseInt(st.nextToken());
             unionParent(v, w);
         }
+// 1 2 3 4 5
+
+// 1: 10
+        for (int i = 1; i < n + 1; i++) {
+            System.out.print(findParent(i) + " ");
+        }
+        System.out.println();
+
+
+// 1 3
+// 2 4 5
 
         for (int i = 1; i < n + 1; i++) {
             int parent = findParent(i);

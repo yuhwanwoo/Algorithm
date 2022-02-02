@@ -49,7 +49,6 @@ public class _2798 {
                     answer = sum;
                 }
             }
-
             return;
         }
 
