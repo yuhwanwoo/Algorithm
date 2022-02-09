@@ -38,6 +38,9 @@ public class _3673 {
             long result = 0l;
             for (int i = 0; i < d; i++) {
                 long tmp = arr[i] * (arr[i] - 1) / 2;
+
+                // 누적합이므로 누적합의 mod에 대한 정보를 가지고 있는다.
+                // 그리고 같은 mod를 갖는 2가지를 고르면 되므로 nC2를 진행하면된다.
                 System.out.println("tmp = " + tmp);
                 result += tmp;
             }
