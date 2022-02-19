@@ -3,11 +3,10 @@ package baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.util.*;
 
-public class _4803 {
+public class _4803_fail {
+
     static ArrayList<ArrayList<Integer>> arr;
 
     static boolean[] visited;
@@ -44,47 +43,43 @@ public class _4803 {
                 arr.get(b).add(a);
             }
 
-//            System.out.println(arr);
+            System.out.println(arr);
 
             for (int i = 1; i < n + 1; i++) {
-//                System.out.println(Arrays.toString(visited));
+                System.out.println(Arrays.toString(visited));
                 if (visited[i]) {
                     continue;
                 }
-                if(dfs(i, 0)) {
+                if(dfs(i)) {
                     count += 1;
-//                    System.out.println("i:" + i +", count:" + count);
+                    System.out.println("i:" + i +", count:" + count);
                 }
-            }
-
-            if (count == 0) {
-                System.out.println("No trees.");
-            } else if (count == 1) {
-                System.out.println("There is one tree.");
-            }else {
-                System.out.println("A forest of " + count + " trees.");
             }
 
             t++;
         }
     }
-    public static boolean dfs(int start, int pre_node) {
-        visited[start] = true;
 
-        for (int i = 0; i < arr.get(start).size(); i++) {
-            int next = arr.get(start).get(i);
-//            System.out.println("start:" + start + ", next:" + next + ", preNode:" + pre_node);
-            if (next == pre_node) {
-                continue;
-            }
-            if (visited[next]) {
-                return false;
-            }
-            if (!dfs(next, start)){
-                return false;
+    public static boolean dfs(int start) {
+        Queue<Integer> q = new LinkedList<>();
+        q.add(start);
+
+        while (!q.isEmpty()) {
+            int now = q.poll();
+            visited[start] = true;
+            for (int i = 0; i < arr.get(now).size(); i++) {
+                int next = arr.get(now).get(i);
+                System.out.println("now:" + now + ", next:" + next);
+                if (now == next) {
+                    continue;
+                }
+                if (visited[next]) {
+                    return false;
+                }
+                visited[next] = true;
+                q.add(next);
             }
         }
-
         return true;
     }
 }
