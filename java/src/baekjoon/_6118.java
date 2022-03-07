@@ -14,7 +14,7 @@ public class _6118 {
         int m = Integer.parseInt(st.nextToken());
 
         for(int i = 0; i < m; i++) {
-            
+
         }
 
     }
