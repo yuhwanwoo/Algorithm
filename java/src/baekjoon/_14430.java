@@ -31,6 +31,6 @@ public class _14430 {
 
     private static void bfs() {
         Queue<Integer> q = new LinkedList<>();
-        
+
     }
 }
