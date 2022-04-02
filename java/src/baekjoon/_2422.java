@@ -15,6 +15,7 @@ public class _2422 {
 
         for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
+
         }
     }
 }
