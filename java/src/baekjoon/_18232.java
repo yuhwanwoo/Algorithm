@@ -26,7 +26,7 @@ public class _18232 {
 
         ArrayList<Integer>[] arr = new ArrayList[n + 1];
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n + 1; i++) {
             arr[i] = new ArrayList<>();
         }
 
@@ -41,14 +41,14 @@ public class _18232 {
         int min = 100000;
 
         Queue<Pair_18232> q = new LinkedList<>();
-        boolean[] visited = new boolean[n];
+        boolean[] visited = new boolean[n + 1];
 
         q.offer(new Pair_18232(s, 0));
         visited[s] = true;
 
         while (!q.isEmpty()) {
             Pair_18232 cn = q.poll();
-            System.out.println(" x: " +cn.x + " e:" + e);
+
             if (cn.x == e) {
                 min = cn.cnt;
                 q.clear();
@@ -67,7 +67,7 @@ public class _18232 {
             for (int d = 0; d < 2; d++) {
                 int nx = cn.x + dirs[d];
 
-                if (nx < 0 || nx >= n) {
+                if (nx < 0 || nx > n) {
                     continue;
                 }
 
