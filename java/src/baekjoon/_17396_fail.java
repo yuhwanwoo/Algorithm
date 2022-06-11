@@ -59,12 +59,17 @@ public class _17396_fail {
         q.add(0);
 
         while (!q.isEmpty()) {
+
             Integer now = q.poll();
 
             for (int i = 0; i < map.get(now).size(); i++) {
                 Pair next = map.get(now).get(i);
                 int nextNode = next.end;
                 int cost = next.cost;
+
+                if (distance[nextNode] < cost) {
+                    continue;
+                }
 
                 if (views[nextNode] == 1 && nextNode != n - 1) {
                     continue;
