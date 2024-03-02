@@ -11,6 +11,10 @@ public class _178870 {
 //        int[] sequence2 = {2, 2, 2, 2, 2};
 //        int k2 = 6;
 //        solution(sequence2, k2);
+        int[] sequence3 = {2, 2, 2, 2, 2, 10, 10, 10, 10, 10, 10};
+        int k3 = 30;
+        solution(sequence3, k3);
+
     }
 
     public static int[] solution(int[] sequence, int k) {
@@ -52,6 +56,8 @@ public class _178870 {
                 sum += sequence[end - 1];
             }
         }
+        System.out.println("answerStart = " + answerStart);
+        System.out.println("answerEnd = " + answerEnd);
 
         return new int[]{answerStart, answerEnd - 1};
     }
