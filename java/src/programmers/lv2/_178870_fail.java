@@ -1,13 +1,13 @@
 package programmers.lv2;
 
-public class _178870 {
+public class _178870_fail {
     public static void main(String[] args) {
 //        int[] sequence = {1, 2, 3, 4, 5};
 //        int k = 7;
-//        solution(sequence, k); //2,4
+//        solution(sequence, k);
 //        int[] sequence1 = {1, 1, 1, 2, 3, 4, 5};
 //        int k1 = 5;
-//        solution(sequence1, k1); // 6,6
+//        solution(sequence1, k1);
 //        int[] sequence2 = {2, 2, 2, 2, 2};
 //        int k2 = 6;
 //        solution(sequence2, k2);
@@ -25,37 +25,35 @@ public class _178870 {
         int answerEnd = sequence.length;
 
         while (start < sequence.length) {
-            System.out.println("==========");
-            System.out.println("start = " + start);
-            System.out.println("end = " + end);
-            System.out.println("sum = " + sum);
             if (sum == k) {
                 System.out.println(1);
                 if ((answerEnd - answerStart) > (end - start)) {
                     answerEnd = end;
                     answerStart = start;
                 }
-                if (end == sequence.length) {
-                    break;
-                }
-                sum += sequence[end];
                 end++;
             } else if (sum > k) {
                 System.out.println(2);
-                sum -= sequence[start];
                 start++;
+                end = start + 1;
+                sum = sequence[start];
+                continue;
             } else {
                 System.out.println(3);
-                if (end == sequence.length) {
-                    break;
-                }
-                sum += sequence[end];
                 end++;
             }
 
             if (end == sequence.length + 1) {
                 System.out.println(4);
-                break;
+                start++;
+                end = start + 1;
+                if (start == sequence.length) {
+                    break;
+                }
+                sum = sequence[start];
+            } else {
+                System.out.println(5);
+                sum += sequence[end - 1];
             }
         }
         System.out.println("answerStart = " + answerStart);
