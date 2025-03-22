@@ -28,7 +28,6 @@ public class exam01 {
                 answer += ((now[0] - pre_cost) * now[2]);
                 pre_cost = now[0];
             }
-
         }
 
         System.out.println(answer);

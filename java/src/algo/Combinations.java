@@ -45,7 +45,6 @@ public class Combinations {
             return;
         }
 
-
         for (int i = start; i < n; i++) {
             output[depth] = arr[i];
             combinations(depth + 1, i + 1);
