@@ -1,0 +1,8 @@
+.idea
+./java/out/
+*/.idea/*
+./.idea
+./out
+
+./java/src/test/
+java/src/test
