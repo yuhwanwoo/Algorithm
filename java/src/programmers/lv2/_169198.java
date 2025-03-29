@@ -16,6 +16,8 @@ public class _169198 {
             int min = Integer.MAX_VALUE;
             int x = balls[i][0];
             int y = balls[i][1];
+            //todo min 계산 식 변경해야함
+
             // y가 같으면서 x가 startX보다 크면안됨
             /*
             (startY-t)x = startX(t-y)
@@ -33,8 +35,10 @@ public class _169198 {
             (t-startX)*(n-y) = (x-t)(n-startY)
 
              */
+
             if (!(x == startX && startY > y)) {
-//                int t = t
+                t = (n * x - x * startY + n * startX - y * startX) / (2 * n - y - startY);
+//                min = Math.min((t- startX))
             }
 
 
