@@ -9,11 +9,18 @@ public class _152996 {
     }
 
     public static long solution(int[] weights) {
-        HashMap<Integer, Integer> count = new HashMap<>();
+        HashMap<Integer, Integer> weightToCount = new HashMap<>();
 
         for (int weight : weights) {
-            count.put(weight, count.getOrDefault(weight, 0) + 1);
+            weightToCount.put(weight, weightToCount.getOrDefault(weight, 0) + 1);
         }
+        for (Integer key : weightToCount.keySet()) {
+            Integer count = weightToCount.get(key);
+        }
+//            for (int i = 2; i <= 4; i++) {
+//
+//            }
+
         long answer = 0;
 
         return answer;
