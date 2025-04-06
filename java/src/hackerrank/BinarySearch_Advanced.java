@@ -19,12 +19,15 @@ public class BinarySearch_Advanced {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int target = Integer.parseInt(br.readLine());
+        try {
+            int target = Integer.parseInt(br.readLine());
+            int firstOccurence = findFirstOccurence(arr, target);
+            int lastOccurence = findLastOccurence(arr, target);
 
-        int firstOccurence = findFirstOccurence(arr, target);
-        int lastOccurence = findLastOccurence(arr, target);
-
-        System.out.println("firstOccurence = " + firstOccurence);
+            System.out.println(firstOccurence + " " + lastOccurence + " " + (lastOccurence - firstOccurence + 1));
+        } catch (Exception e) {
+            System.out.println(-1 + " " + -1 + " " + (0));
+        }
     }
 
     private static int findFirstOccurence(int[] arr, int target) {
@@ -49,17 +52,17 @@ public class BinarySearch_Advanced {
         int start = 0;
         int end = arr.length - 1;
         int result = -1;
-//        while (start <= end) {
-//            int mid = (start + end) / 2;
-//            if (arr[mid] == target) {
-//                end = mid + 1;
-//                result = mid;
-//            } else if (arr[mid] < target) {
-//                start = mid + 1;
-//            } else {
-//                end = mid - 1;
-//            }
-//        }
+        while (start <= end) {
+            int mid = (start + end) / 2;
+            if (arr[mid] == target) {
+                start = mid + 1;
+                result = mid;
+            } else if (arr[mid] < target) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+        }
         return result;
     }
 }
