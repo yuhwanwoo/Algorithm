@@ -40,6 +40,7 @@ public class Oho01 {
                 int posB = positionsB.get(j);
                 minDist = Math.min(minDist, Math.abs(posA - posB));
 
+
                 // 포인터 이동
                 if (posA < posB) {
                     i++;
