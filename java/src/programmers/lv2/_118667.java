@@ -11,7 +11,7 @@ public class _118667 {
 //        int[] queue11 = new int[]{1, 1, 1, 1,1};
 //        int[] queue22 = new int[]{1,1,1,9,1};
         int[] queue11 = new int[]{9,7,2};
-        int[] queue22 = new int[]{9,2,11};
+        int[] queue22 = new int[]{9,2,11}; // 3
         System.out.println(solution(queue11, queue22));
     }
 
