@@ -12,6 +12,14 @@ public class _118667 {
 //        int[] queue22 = new int[]{1,1,1,9,1};
         int[] queue11 = new int[]{9,7,2};
         int[] queue22 = new int[]{9,2,11}; // 3
+        /*
+
+        9 7 2 9 => 27
+        2 11 => 13
+
+        7 2 9 => 18
+        2 11 9 => 22
+         */
         System.out.println(solution(queue11, queue22));
     }
 
@@ -37,15 +45,11 @@ public class _118667 {
             return -1;
         }
 
-        int target = sum / 2;
-
         while (true) {
-            System.out.println("sum1 = " + sum1);
-            System.out.println("sum2 = " + sum2);
             if (answer > queue1.length * 4) {
                 return -1;
             }
-            System.out.println("=======");
+
             if (sum1 == sum2) {
                 break;
             }
@@ -54,12 +58,11 @@ public class _118667 {
                 return -1;
             }
 
-            if (sum1 > target) {
+            if (sum1 > sum2) {
                 sum1 -= q1.peek();
                 sum2 += q1.peek();
                 q2.add(q1.poll());
-            }
-            if (sum1 <target) {
+            } else {
                 sum2 -= q2.peek();
                 sum1 += q2.peek();
                 q1.add(q2.poll());
