@@ -1,7 +1,10 @@
 package programmers.lv2;
 
 public class _12923_ans {
-    public int[] solution(long begin, long end) {
+    public static void main(String[] args) {
+        solution(1, 10); // 0, 1, 1, 2, 1, 3, 1, 4, 3, 5
+    }
+    public static int[] solution(long begin, long end) {
         int[] result = new int[(int) (end - begin + 1)];
         int index = 0;
         for (int i = (int) begin; i <= end; i++, index++) {
@@ -15,7 +18,7 @@ public class _12923_ans {
         return result;
     }
 
-    public boolean isPrime(int n) {
+    public static boolean isPrime(int n) {
         if (n < 2) {
             return false;
         }
@@ -29,7 +32,7 @@ public class _12923_ans {
         return true;
     }
 
-    private int getMaxDivisor(int number) {
+    private static int getMaxDivisor(int number) {
         if (number == 1) {
             return 0;
         }
