@@ -1,11 +1,7 @@
 package leetcode;
 
-public class LongestPalindromicSubstring_ans {
-    public static void main(String[] args) {
-
-    }
-
-    private String longestPalindrome(String s) {
+public class LongestPalindromicSubstring_ans2 {
+    public String longestPalindrome(String s) {
         for (int len = s.length(); len > 1; len--) {
             for (int idx = 0; idx + len <= s.length(); idx++) {
                 boolean isValid = true;
