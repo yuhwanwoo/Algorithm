@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.Arrays;
+
 public class ThreeSumClosest_1 {
     public static void main(String[] args) {
         int[] nums = {-1,2,1,-4};
@@ -10,9 +12,12 @@ public class ThreeSumClosest_1 {
     }
 
     public static int threeSumClosest(int[] nums, int target) {
-        int answer = nums[0] + nums[1] + nums[2];
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length - 2; i++) {
+            
+        }
 
 
-        return answer;
+        return 0;
     }
 }
