@@ -28,7 +28,7 @@ public class LetterCombinationsOfAPhoneNumber {
     }
 
 
-    void dfs(String digits, String msg, List<String> answer){
+    static void dfs(String digits, String msg, List<String> answer){
         if(msg.length() == digits.length()){
             answer.add(msg);
             return;
