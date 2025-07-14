@@ -4,7 +4,10 @@ import java.util.Arrays;
 
 public class biggerIsGreater_ans {
     public static void main(String[] args) {
-
+        System.out.println("solve(\"abc\") = " + solve("bac"));
+        System.out.println("solve(\"bca\") = " + solve("bca"));
+        System.out.println("solve(\"bacaa\") = " + solve("bacaa"));
+        System.out.println("solve(\"baacaa\") = " + solve("baacaa"));
     }
 
     public static String solve(String input) {
