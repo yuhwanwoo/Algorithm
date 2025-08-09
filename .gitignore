@@ -3,7 +3,7 @@
 */.idea/*
 ./.idea
 ./out
-
+/out
+/java/out/
 ./java/src/test/
 java/src/test
-/out
