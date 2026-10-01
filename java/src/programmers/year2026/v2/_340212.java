@@ -6,30 +6,40 @@ public class _340212 {
         int[] times = {2, 4, 7};
         long limit = 30;
         solution(diffs, times, limit);
+
+        int[] diffs1 = {1, 4, 4, 2};
+        int[] times1 = {6, 3, 8, 2};
+        long limit1 = 59;
+        solution(diffs1, times1, limit1);
+
+        int[] diffs2 = {1, 4, 4, 2};
+        int[] times2 = {6, 3, 8, 2};
+        long limit2 = 59;
+        solution(diffs2, times2, limit2);
+
     }
 
     public static int solution(int[] diffs, int[] times, long limit) {
         int min = 1;
         int max = 100000;
         int answer = 100000;
-        while (min < max) {
+        while (min <= max) {
             int mid = (min + max) / 2;
-            int totalTime = 0;
+            long totalTime = 0;
             for (int i = 0; i < diffs.length; i++) {
                 if (diffs[i] > mid) {
-                    totalTime += ((diffs[i] - mid) * (times[i - 1] + times[i]));
+                    totalTime += ((long) (diffs[i] - mid) * (times[i - 1] + times[i]));
                 }
                 totalTime += times[i];
 
-                if (limit < totalTime) {
-                    max = mid;
-                } else {
-                    min = mid + 1;
-                    answer = mid;
-                }
+            }
+            if (limit >= totalTime) {
+                max = mid - 1;
+                answer = mid;
+            } else {
+                min = mid + 1;
             }
         }
-        System.out.println("answer = " + answer);
         return answer;
     }
 }
