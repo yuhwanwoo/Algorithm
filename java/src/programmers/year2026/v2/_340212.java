@@ -9,7 +9,27 @@ public class _340212 {
     }
 
     public static int solution(int[] diffs, int[] times, long limit) {
-        int answer = 0;
+        int min = 1;
+        int max = 100000;
+        int answer = 100000;
+        while (min < max) {
+            int mid = (min + max) / 2;
+            int totalTime = 0;
+            for (int i = 0; i < diffs.length; i++) {
+                if (diffs[i] > mid) {
+                    totalTime += ((diffs[i] - mid) * (times[i - 1] + times[i]));
+                }
+                totalTime += times[i];
+
+                if (limit < totalTime) {
+                    max = mid;
+                } else {
+                    min = mid + 1;
+                    answer = mid;
+                }
+            }
+        }
+        System.out.println("answer = " + answer);
         return answer;
     }
 }
