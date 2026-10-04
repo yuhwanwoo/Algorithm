@@ -9,6 +9,15 @@ public class _389479 {
     }
     public static int solution(int[] players, int m, int k) {
         int answer = 0;
+        int limitCount = m;
+        int scaleUpCount = 0;
+        for (int i = 0; i < players.length; i++) {
+            int need = players[i] / m;
+            if (need > limitCount) {
+                answer += 1;
+            }
+
+        }
         return answer;
     }
 }
