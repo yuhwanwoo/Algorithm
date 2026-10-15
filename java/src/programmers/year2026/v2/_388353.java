@@ -1,14 +1,9 @@
 package programmers.year2026.v2;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class _388353 {
     static int total;
     static char[][] map;
-    static char[][] visited;
-    static Queue<Integer> xList = new LinkedList<>();
-    static Queue<Integer> yList = new LinkedList<>();
+    static boolean[][] visited;
     static int[] dx = {-1, 0, 1, 0};
     static int[] dy = {0, -1, 0, 1};
     static int n;
@@ -24,6 +19,7 @@ public class _388353 {
         total = storage[0].length() * storage.length;
         n = storage.length;
         m = storage[0].length();
+        map = new char[n][m];
         for (int i = 0; i < storage.length; i++) {
             map[i] = storage[i].toCharArray();
         }
@@ -35,6 +31,7 @@ public class _388353 {
                 useTruck(requests[i].charAt(0));
             }
         }
+        System.out.println("total = " + total);
         return total;
     }
     private static void useCrane(char target) {
@@ -51,31 +48,33 @@ public class _388353 {
     }
 
     private static void useTruck(char target) {
-        visited = new char[n][m];
+        visited = new boolean[n][m];
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                dfs(i, j, target);
-            }
+            if(!visited[i][0]) dfs(i, 0, target);
+            if(!visited[i][m - 1]) dfs(i, m - 1, target);
         }
-        for (int i = 0; i < xList.size(); i++) {
-            Integer x = xList.poll();
-            Integer y = xList.poll();
-            total--;
-            map[x][y] = '-';
+        for(int i = 0; i < m; i++){
+            if(!visited[0][i]) dfs(0, i, target);
+            if(!visited[n - 1][i]) dfs(n - 1, i, target);
         }
     }
 
     private static void dfs(int x, int y, char target) {
-        if (map[x][y] == target) {
-            xList.add(x);
-            yList.add(y);
+        visited[x][y] = true;
+        if (map[x][y] == '-') {
+            for (int i = 0; i < 4; i++) {
+                int nx = x + dx[i];
+                int ny = y + dy[i];
+                if (nx >= 0 && nx < n && ny >= 0 && ny < m &&
+                        !visited[nx][ny]) {
+                    dfs(nx, ny, target);
+                }
+            }
         }
 
-        for (int i = 0; i < 4; i++) {
-            int nx = x + dx[i];
-            int ny = y + dy[i];
-            if ()
-
+        if (map[x][y] == target) {
+            total--;
+            map[x][y] = '-';
         }
     }
 }
