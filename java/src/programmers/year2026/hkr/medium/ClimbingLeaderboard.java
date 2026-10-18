@@ -15,15 +15,15 @@ public class ClimbingLeaderboard {
         // Write your code here
         List<Integer> answer = new ArrayList<>();
         List<Integer> set = new ArrayList<>();
-        set.add(ranked.get(0));
-
-        for (int i = 1; i < ranked.size(); i++) {
-            if (ranked.get(i) != set.get(set.size() - 1)) {
-                set.add(ranked.get(i));
+        if (!ranked.isEmpty()) {
+            set.add(ranked.get(0));
+            for (int i = 1; i < ranked.size(); i++) {
+                if (!ranked.get(i).equals(set.get(set.size() - 1))) {
+                    set.add(ranked.get(i));
+                }
             }
         }
-        System.out.println("set = " + set);
-        System.out.println("player = " + player);
+
 
         for (int i = 0; i < player.size(); i++) {
             int start = 0;
@@ -42,7 +42,7 @@ public class ClimbingLeaderboard {
             }
             answer.add(idx + 1);
         }
-
-        return player;
+        System.out.println("answer = " + answer);
+        return answer;
     }
 }
