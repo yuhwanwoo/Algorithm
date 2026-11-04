@@ -2,7 +2,7 @@ package programmers.year2026.hkr.easy;
 
 import java.util.List;
 
-public class CountApplesAndOranges {
+public class CountApplesAndOranges_ans {
     static void main() {
 
     }
