@@ -1,6 +1,6 @@
 package programmers.year2026.hkr.medium;
 
-public class TimeInWords {
+public class TimeInWords_ans {
     static void main() {
 
     }
